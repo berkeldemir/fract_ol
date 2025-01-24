@@ -1,7 +1,10 @@
+NAME = fractol
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-all: 
+all: $(NAME)
+
+$(NAME): 
 
 clean:
 	rm -rf 
