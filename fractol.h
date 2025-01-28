@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:51:33 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/28 16:11:54 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:18:58 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,22 @@
 # define WID 1200
 # define HEI 800
 
+typedef struct s_img
+{
+	int	x;
+	int	y;
+	double	zx;
+	double	zy;
+	double	cx;
+	double	cy;
+	int		color;
+	double	ox;
+	double	oy;
+	double	zoom;
+	char	*name;
+	int		max_it;
+}	t_img;
+
 typedef struct s_app
 {
 	void	*mlx;
@@ -34,12 +50,6 @@ typedef struct s_app
 	int		size;
 	int		endian;
 }	t_app;
-
-typedef struct s_img
-{
-	t_app	*app;
-	
-}	t_img;
 
 int		ft_printf(const char *str, ...);
 void	img_init(t_img *img);
