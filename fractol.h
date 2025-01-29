@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:51:33 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/28 16:18:58 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/01/29 16:12:34 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@
 # include <stdarg.h>
 # include <fcntl.h>
 # include <math.h>
-# include "./mlx/mlx.h"
 # include <stdio.h>
 # include <stdlib.h>
+
+# ifdef __MAC__
+#  include "./ml-mac/mlx.h"
+# else
+#  include "./mlx/mlx.h"
+# endif
 
 # define WID 1200
 # define HEI 800

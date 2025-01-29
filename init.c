@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:58:36 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/28 16:11:33 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/01/29 15:39:18 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 void	img_init(t_img *img)
 {
-	return ;
+	img->x = 0;
+	img->y = 0;
+	img->color = 0xFCBE11;
+	img->zoom = 300;
+	img->ox = -1.21;
+	img->oy = -1.21;
+	img->max_it = 42;
 }
 
 void	app_init(t_app *app)
