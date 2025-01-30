@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:51:33 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/29 16:12:34 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/01/30 15:34:05 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,12 @@
 
 typedef struct s_img
 {
-	int	x;
-	int	y;
+	int		fractal;
+	// 1: Mandelbrot
+	// 2: Julia
+	// 3: Burning Ship
+	int		x;
+	int		y;
 	double	zx;
 	double	zy;
 	double	cx;
@@ -41,7 +45,6 @@ typedef struct s_img
 	double	ox;
 	double	oy;
 	double	zoom;
-	char	*name;
 	int		max_it;
 }	t_img;
 
