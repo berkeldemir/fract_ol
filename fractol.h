@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:51:33 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/11 18:11:10 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:13:20 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <stdlib.h>
 
 # ifdef __APPLE__
-#  include "./ml-mac/mlx.h"
+#  include "./mlx-mac/mlx.h"
 # else
 #  include "./mlx/mlx.h"
 # endif
