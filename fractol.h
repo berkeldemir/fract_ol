@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:51:33 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/11 18:13:20 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:18:25 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
+
 
 # ifdef __APPLE__
 #  include "./mlx-mac/mlx.h"
@@ -37,7 +38,7 @@ typedef	struct	s_complex
 
 typedef struct s_img
 {
-	int		fractal;
+	int			fractal;
 	// 1: Mandelbrot
 	// 2: Julia
 	// 3: Burning Ship
@@ -47,7 +48,7 @@ typedef struct s_img
 	t_complex	c;
 	int			color;
 	double		zoom;
-	int		max_it;
+	int			max_it;
 }	t_img;
 
 typedef struct s_app
@@ -62,7 +63,8 @@ typedef struct s_app
 }	t_app;
 
 int		ft_printf(const char *str, ...);
-void	img_init(t_img *img);
+int		ft_strcmp(const char *s1, const char *s2);
+int		img_init(t_img *img, char *fractal);
 void	app_init(t_app *app);
 void	app_hooks(t_app *app);
 
