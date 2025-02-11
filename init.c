@@ -6,20 +6,30 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:58:36 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/29 15:39:18 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:17:42 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	img_init(t_img *img)
+int	img_init(t_img *img, char *fractal)
 {
+	if (!ft_strcmp(fractal, "mandelbrot"))
+		img->fractal = 1;
+	else if (!ft_strcmp(fractal, "julia"))
+		img->fractal = 2;
+	else if  (!ft_strcmp(fractal, "burningship"))
+		img->fractal = 3;
+	else
+		return (-1);
 	img->x = 0;
 	img->y = 0;
 	img->color = 0xFCBE11;
 	img->zoom = 300;
-	img->ox = -1.21;
-	img->oy = -1.21;
+	img->z.r = -1.21;
+	img->z.i = -1.21;
+	img->c.r = 0;
+	img->c.i = -1.21;
 	img->max_it = 42;
 }
 
@@ -65,5 +75,4 @@ void	app_hooks(t_app *app)
 	mlx_key_hook(app->win, key_hook, app->mlx);
 	mlx_hook(app->win, 17, 0, close_window, &app);
 	// 17 is the event for closing the window with the 'X' button
-	mlx_loop(app->mlx);
 }
