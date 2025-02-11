@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:51:33 by beldemir          #+#    #+#             */
-/*   Updated: 2025/01/30 15:34:05 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:11:10 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 
-# ifdef __MAC__
+# ifdef __APPLE__
 #  include "./ml-mac/mlx.h"
 # else
 #  include "./mlx/mlx.h"
@@ -29,22 +29,24 @@
 # define WID 1200
 # define HEI 800
 
+typedef	struct	s_complex
+{
+	double	r;
+	double	i;
+}	t_complex;
+
 typedef struct s_img
 {
 	int		fractal;
 	// 1: Mandelbrot
 	// 2: Julia
 	// 3: Burning Ship
-	int		x;
-	int		y;
-	double	zx;
-	double	zy;
-	double	cx;
-	double	cy;
-	int		color;
-	double	ox;
-	double	oy;
-	double	zoom;
+	double		x;
+	double		y;
+	t_complex	z;
+	t_complex	c;
+	int			color;
+	double		zoom;
 	int		max_it;
 }	t_img;
 
