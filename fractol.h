@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 18:51:33 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/11 19:18:25 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:53:46 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef	struct	s_complex
 
 typedef struct s_img
 {
-	int			fractal;
+	int			set;
 	// 1: Mandelbrot
 	// 2: Julia
 	// 3: Burning Ship

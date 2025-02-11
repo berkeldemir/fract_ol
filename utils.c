@@ -6,10 +6,11 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:53:50 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/11 18:59:40 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:46:34 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./mlx/mlx.h"
 
 int	ft_strcmp(const char *s1, const char *s2)
 {

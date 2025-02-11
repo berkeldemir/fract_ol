@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:58:36 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/11 19:17:42 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/11 19:47:11 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int	img_init(t_img *img, char *fractal)
 {
 	if (!ft_strcmp(fractal, "mandelbrot"))
-		img->fractal = 1;
+		img->set = 1;
 	else if (!ft_strcmp(fractal, "julia"))
-		img->fractal = 2;
+		img->set = 2;
 	else if  (!ft_strcmp(fractal, "burningship"))
-		img->fractal = 3;
+		img->set = 3;
 	else
 		return (-1);
 	img->x = 0;
