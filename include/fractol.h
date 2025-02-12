@@ -1,0 +1,75 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
+/*   Updated: 2025/02/12 19:16:10 by beldemir         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef FRACTOL_H
+# define FRACTOL_H
+
+# include <unistd.h>
+# include <math.h>
+# include <stdlib.h>
+# include <stdarg.h>
+# include <stdlib.h>
+# include <pthread.h>
+# include <float.h>
+# include "./mlx/mlx.h"
+
+# define W 1200
+# define H 800
+# define MAX_IT 42
+
+# define MAX_R 2
+# define MAX_I 2
+# define MIN_R -2
+# define MIN_I -2
+
+# define ESC 53
+# define R 15
+# define C 8
+
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
+
+typedef struct	s_complex
+{
+	double  r;
+	double  i;
+}	t_complex;
+
+typedef struct	s_app
+{
+	void		*mlx;
+	void		*win;
+	void		*img;
+	void		*ptr;
+	int			bpp;
+	int			size;
+	int			endian;
+	char		set;
+	int			x;
+	int			y;
+	t_complex	z;
+	t_complex	c;
+	double		offset_x;
+	double		offset_y;
+	int			color;
+	double		zoom;
+}	t_app;
+
+int		ft_printf(const char *str, ...);
+int		ft_strcmp(const char *s1, const char *s2);
+int		ft_isnum(char *s);
+int		quit_app(t_app *app, char *msg);
+void	hooks(t_app *app);
+void    init(t_app *app, char set, double val);
+void	draw_mandelbrot(void *void_app);
+
+#endif
