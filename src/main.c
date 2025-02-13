@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 14:08:25 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:22:44 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,55 +25,50 @@ int	quit_app(t_app *app, char *msg)
 		;
 	else
 		ft_printf("%s\n", msg);
-	exit(0);
+	exit(EXIT_FAILURE);
 	return (0);
 }
 
-char	arg_checker(int ac, char **av)
+static double ft_atod(char *s)
 {
-	if (ac != 2)
-		if (!(ac == 3 && !(ft_strcmp(av[1], "julia")) && ft_isnum(av[2]) > 0))
-			return ('Q');
-	if (!ft_strcmp(av[1], "mandelbrot"))
-		return ('m');
-	if (!ft_strcmp(av[1], "julia"))
-		return ('j');
-	else
-		return ('Q');
+	// Edit.
+	return (0.0);
 }
 
-void draw(t_app *app, char set, double val)
+static void	look(t_app *app, int ac, char **av)
+{
+	if (ac != 2)
+		if (!(ac == 4 && !(ft_strcmp(av[1], "julia")) && ft_isnum(av[2]) > 0))
+			quit_app(app, ERRARG);
+	if (!ft_strcmp(av[1], "mandelbrot"))
+		app->set = 'm';
+	else if (!ft_strcmp(av[1], "julia"))
+		app->set = 'j';
+	else
+		ft_printf("WTF\n");
+	if (ac == 4)
+		app->v1 = ft_atod(av[2]);
+		app->v2 = ft_atod(av[3]);
+}
+
+static void draw(t_app *app)
 {
 	ft_printf("-> In draw function\n");
-	if (set == 'm')
-	{
-		ft_printf("-> Mandelbrot is being printed\n");
+	if (app->set == 'm')
 		mandelbrot(app);
-	}
-	else if (set == 'j')
-	{
-		//draw_julia(app, val);
+	else if (app->set == 'j')
 		ft_printf("-> Julia set cannot print atm\n") ;
-	}
 	mlx_put_image_to_window(app->mlx, app->win, app->img, 0, 0);
 }
 
 int main(int ac, char **av)
 {
 	t_app	*app;
-	char	set;
-	double	val;
 
-	set = 'Q';
-	val = 0; // Mandelbrot için varsayılan değer. Aksi durumlarda julia için kullanılacak.
-	set = arg_checker(ac, av);
-	if (set == 'Q')
-		quit_app(NULL, "Invalid argument count/value. ./fractol <mandelbrot/julia>");
-	app = malloc(sizeof(t_app));
-	if (!app)
-		quit_app(app, "Malloc failed.");
-	init(app, set, val);
-	draw(app, set, val);
+	look(app, ac, av);
+	init(app);
+	hook(app);
+	draw(app);
 	mlx_loop(app->mlx);
-	free(app);
+	//free_all(app);
 }

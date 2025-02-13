@@ -6,20 +6,13 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:03:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 16:40:53 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:19:00 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-
-
-int	colours(int	palette)
-{
-	
-}
-
-void    init(t_app *app, char set, double val)
+static void	init_mlx(t_app *app)
 {
 	app->mlx = mlx_init();
 	app->win = mlx_new_window(app->mlx, W, H, "fractol");
@@ -30,7 +23,16 @@ void    init(t_app *app, char set, double val)
 			&app->endian);
 	if (!app->win || !app->mlx || !app->img || !app->ptr)
 		quit_app(app, "Init failed.");
-	app->set = set;
+}
+
+void    init(t_app *app)
+{
+	init_mlx(app);
+	if (!app->v1 || !app->v2)
+	{
+		app->v1 = 0;
+		app->v2	= 0;
+	}
 	app->x = 0;
 	app->y = 0;
 	app->offset_x = -0.5;
@@ -41,6 +43,5 @@ void    init(t_app *app, char set, double val)
 	app->z.i = 0;
 	app->c.r = 0;
 	app->c.i = 0;
-	hooks(app);
 	return ;
 }

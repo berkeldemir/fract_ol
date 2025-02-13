@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 11:57:51 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:19:28 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	key_hook(int keycode, t_app *app)
 	return (0);
 }
 
-void	hooks(t_app *app)
+void	hook(t_app *app)
 {
 	mlx_key_hook(app->win, key_hook, app->mlx);
 	mlx_hook(app->win, 17, 0, close_window, &app);
