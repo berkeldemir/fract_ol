@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:10:45 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 19:36:23 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:51:40 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ static void	calc(t_app *i)
 	}
 	color(i, j);
 }
+static double	map(t_app *i) {
+    return ((i->x / (double)W) * (i->max_r - i->min_r) * i->zoom);
+}
+
 
 void	mandelbrot(t_app *i)
 {
@@ -59,6 +63,8 @@ void	mandelbrot(t_app *i)
 		{
 			i->c.r = (i->x / (double)W) * (i->max_r - i->min_r) * i->zoom + i->min_r + i->offset_x;
 			i->c.i = (i->y / (double)H) * (i->max_i - i->min_i) * i->zoom + i->min_i + i->offset_y;
+			//i->c.r = (map(i) + i->min_r + i->offset_x);
+			//i->c.i = (map(i) + i->min_i + i->offset_y);
 			i->z.i = 0;
 			i->z.r = 0;
 			calc(i);

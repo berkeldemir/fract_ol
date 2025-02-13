@@ -6,17 +6,22 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 19:48:59 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 21:02:55 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
+static void	redraw(t_app *i)
+{
+	mlx_clear_window(i->mlx, i->win);
+	draw(i);
+}
+
 static int	close_window(t_app *app)
 {
 	quit_app(app, "Hope you enjoy!");
 }
-
 
 static int	key_hook(int keycode, t_app *app)
 {
@@ -28,7 +33,10 @@ static int	key_hook(int keycode, t_app *app)
 		close_window(app);
 	}
 	if (keycode == 99)
+	{
 		app->palette++;
+		redraw(app);
+	}
 	return (0);
 }
 

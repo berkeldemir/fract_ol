@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 19:43:25 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 21:03:09 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void	look(t_app *app, int ac, char **av)
 		app->v2 = ft_atod(av[3]);
 }
 
-static void draw(t_app *app)
+void draw(t_app *app)
 {
 	ft_printf("-> In draw function\n");
 	if (app->set == 'm')
