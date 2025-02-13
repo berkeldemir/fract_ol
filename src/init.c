@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:03:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 13:46:44 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:19:35 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void    init(t_app *app, char set, double val)
 	app->set = set;
 	app->x = 0;
 	app->y = 0;
-	app->offset_x = 5;
-	app->offset_y = 5;
+	app->offset_x = 0;
+	app->offset_y = 0;
 	app->color = 0xFCBE11;
-	app->zoom = 200;
+	app->zoom = 1.0;
 	app->z.r = 0;
 	app->z.i = 0;
 	app->c.r = 0;
