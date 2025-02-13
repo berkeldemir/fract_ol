@@ -6,11 +6,18 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:03:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 15:19:35 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:40:53 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
+
+
+
+int	colours(int	palette)
+{
+	
+}
 
 void    init(t_app *app, char set, double val)
 {
@@ -26,10 +33,10 @@ void    init(t_app *app, char set, double val)
 	app->set = set;
 	app->x = 0;
 	app->y = 0;
-	app->offset_x = 0;
+	app->offset_x = -0.5;
 	app->offset_y = 0;
-	app->color = 0xFCBE11;
-	app->zoom = 1.0;
+	app->palette = 0;
+	app->zoom = 1;
 	app->z.r = 0;
 	app->z.i = 0;
 	app->c.r = 0;

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 15:19:56 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:27:16 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@
 # define H 800
 # define MAX_IT 2000
 
-# define MAX_R 2
-# define MAX_I 2
-# define MIN_R -2
-# define MIN_I -2
+# define MAX_R 2.5
+# define MAX_I 2.5
+# define MIN_R -2.5
+# define MIN_I -2.5
 
 # define ESC 53
 # define R 15
@@ -60,7 +60,7 @@ typedef struct	s_app
 	t_complex	c;
 	double		offset_x;
 	double		offset_y;
-	int			color;
+	int			palette;
 	double		zoom;
 }	t_app;
 
@@ -70,6 +70,7 @@ int		ft_isnum(char *s);
 int		quit_app(t_app *app, char *msg);
 void	hooks(t_app *app);
 void    init(t_app *app, char set, double val);
+int		get_color(t_app *i, int j);
 void	mandelbrot(t_app *app);
 
 #endif

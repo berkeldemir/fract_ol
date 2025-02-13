@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:10:45 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 15:18:22 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 16:26:27 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,14 @@
 
 static void color(t_app *i, int j)
 {
+	
 	int		color;
 	char	*pixel;
 	
 	if (j == MAX_IT)
 		color = 0x000000;
 	else
-    {
-        int r = (j * 9) % 256;
-        int g = (j * 2) % 256;
-        int b = (j * 4) % 256;
-        color = (r << 16) | (g << 8) | b;
-    }
+		color = get_color(i, j);
 	pixel = i->ptr + (i->y * i->size + i->x * (i->bpp / 8));
 	*(unsigned int *)pixel = color;
 }
@@ -62,7 +58,7 @@ void	mandelbrot(t_app *i)
 		while (i->x < W)
 		{
 			i->c.r = (i->x / (double)W) * (MAX_R - MIN_R) * i->zoom + MIN_R + i->offset_x;
-            i->c.i = (i->y / (double)H) * (MAX_I - MIN_I) * i->zoom + MIN_I + i->offset_y;
+			i->c.i = (i->y / (double)H) * (MAX_I - MIN_I) * i->zoom + MIN_I + i->offset_y;
 			i->z.i = 0;
 			i->z.r = 0;
 			calc(i);

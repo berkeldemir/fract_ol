@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+         #
+#    By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 13:43:40 by beldemir          #+#    #+#              #
-#    Updated: 2025/02/12 17:33:54 by beldemir         ###   ########.fr        #
+#    Updated: 2025/02/13 16:27:48 by beldemir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS = ./src/main.c \
 		./src/utils.c \
 		./src/hooks.c \
 		./src/mandelbrot.c \
+		./src/palette.c \
 		./include/ft_printf.c
 FLAGS = -I./include/mlx -L./include/mlx -lmlx -lX11 -lXext -lm -pthread
 
