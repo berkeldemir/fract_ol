@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/12 19:16:10 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:08:10 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,6 @@ int		ft_isnum(char *s);
 int		quit_app(t_app *app, char *msg);
 void	hooks(t_app *app);
 void    init(t_app *app, char set, double val);
-void	draw_mandelbrot(void *void_app);
+void	mandelbrot(t_app *app);
 
 #endif

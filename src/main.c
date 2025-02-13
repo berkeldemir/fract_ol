@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/12 19:35:23 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 14:08:25 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 int	quit_app(t_app *app, char *msg)
 {
 	/*if (app)
-	
+	{
+		// FREE ANYTTHING
+	}
 	else
 	*/
 
@@ -30,7 +32,7 @@ int	quit_app(t_app *app, char *msg)
 char	arg_checker(int ac, char **av)
 {
 	if (ac != 2)
-		if (!(ac == 3 && !ft_strcmp(av[1], "julia") && ft_isnum(av[2]) > 0))
+		if (!(ac == 3 && !(ft_strcmp(av[1], "julia")) && ft_isnum(av[2]) > 0))
 			return ('Q');
 	if (!ft_strcmp(av[1], "mandelbrot"))
 		return ('m');
@@ -42,12 +44,16 @@ char	arg_checker(int ac, char **av)
 
 void draw(t_app *app, char set, double val)
 {
+	ft_printf("-> In draw function\n");
 	if (set == 'm')
-		draw_mandelbrot(app);
-	if (set == 'j')
+	{
+		ft_printf("-> Mandelbrot is being printed\n");
+		mandelbrot(app);
+	}
+	else if (set == 'j')
 	{
 		//draw_julia(app, val);
-		return ;
+		ft_printf("-> Julia set cannot print atm\n") ;
 	}
 	mlx_put_image_to_window(app->mlx, app->win, app->img, 0, 0);
 }
@@ -67,7 +73,7 @@ int main(int ac, char **av)
 	if (!app)
 		quit_app(app, "Malloc failed.");
 	init(app, set, val);
-	mlx_loop(app->mlx);
 	draw(app, set, val);
+	mlx_loop(app->mlx);
 	free(app);
 }

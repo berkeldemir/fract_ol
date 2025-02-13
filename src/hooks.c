@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/12 18:22:45 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:57:51 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,14 @@ static int	close_window(t_app *app)
 static int	key_hook(int keycode, t_app *app)
 {
 	ft_printf("\nkeycode: %i", keycode);
-	if (keycode == 65307)
+	if (keycode == 65307 || keycode == 113)
 	{
-		ft_printf("\nESC pressed. Shutting Down.\n");
+		ft_printf("\nESC/Q pressed. Shutting Down.\n");
 //		mlx_destroy_window(app->mlx, app->win);
 		close_window(app);
 	}
 	if (keycode == 65300)
-	{
 		return (0);
-	}
 	return (0);
 }
 
