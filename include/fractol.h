@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 17:19:20 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:35:36 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,8 @@
 
 # define W 1200
 # define H 800
-# define MAX_IT 2000
-
-# define MAX_R 2.5
-# define MAX_I 2.5
-# define MIN_R -2.5
-# define MIN_I -2.5
+# define MAX_IT 100
+# define MOVE_FACTOR 0.3
 
 # define ESC 53
 # define R 15
@@ -68,6 +64,10 @@ typedef struct s_app
 	double		offset_y;
 	int			palette;
 	double		zoom;
+	double		max_r;
+	double		max_i;
+	double		min_r;
+	double		min_i;
 }	t_app;
 
 int		ft_printf(const char *str, ...);

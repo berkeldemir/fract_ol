@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 17:19:28 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:48:59 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 static int	close_window(t_app *app)
 {
-	//mlx_destroy_window(app->mlx, app->win); // Safely destroy the window
-	//mlx_destroy_display(app->mlx);  // Clean up the display
-	exit(0);  // Exit the application
+	quit_app(app, "Hope you enjoy!");
 }
 
 
@@ -29,8 +27,8 @@ static int	key_hook(int keycode, t_app *app)
 //		mlx_destroy_window(app->mlx, app->win);
 		close_window(app);
 	}
-	if (keycode == 65300)
-		return (0);
+	if (keycode == 99)
+		app->palette++;
 	return (0);
 }
 
