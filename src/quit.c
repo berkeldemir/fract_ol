@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:43:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 20:10:27 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 21:46:49 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,14 @@ static void free_app(t_app *app)
 
 int	quit_app(t_app *app, char *msg)
 {
-    if (app->win)
-    {
-        //mlx_destroy_window(app->mlx, app->win);
-        app->win = NULL;
-    }
-    free(app->mlx);
+    if (app->img)
+		mlx_destroy_image(app->mlx, app->img);
+	if (app->win)
+		mlx_destroy_window(app->mlx, app->win);
+	if (app->mlx)
+		mlx_destroy_display(app->mlx);
+	if (app->mlx)
+		free(app->mlx);
     app->mlx = NULL;
 	if (msg[0] == '\0')
 		;

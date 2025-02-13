@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:03:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 20:58:07 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 21:45:40 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,20 @@
 static void	init_mlx(t_app *app)
 {
 	app->mlx = mlx_init();
+	if (!app->mlx)
+		quit_app(app, ERRMLC);
 	app->win = mlx_new_window(app->mlx, W, H, "fractol");
+	if (!app->win)
+		quit_app(app, ERRMLC);
 	app->img = mlx_new_image(app->mlx, W, H);
+	if (!app->img)
+		quit_app(app, ERRMLC);
 	app->ptr = mlx_get_data_addr(app->img,
 			&app->bpp,
 			&app->size,
 			&app->endian);
-	if (!app->win || !app->mlx || !app->img || !app->ptr)
-		quit_app(app, "Init failed.");
+	if (!app->ptr)
+		quit_app(app, ERRMLC);
 }
 
 void    init(t_app *app)

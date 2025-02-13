@@ -6,17 +6,11 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 21:02:55 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/13 21:48:34 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
-
-static void	redraw(t_app *i)
-{
-	mlx_clear_window(i->mlx, i->win);
-	draw(i);
-}
 
 static int	close_window(t_app *app)
 {
@@ -29,13 +23,14 @@ static int	key_hook(int keycode, t_app *app)
 	if (keycode == 65307 || keycode == 113)
 	{
 		ft_printf("\nESC/Q pressed. Shutting Down.\n");
-//		mlx_destroy_window(app->mlx, app->win);
-		close_window(app);
+		quit_app(app, "BYE!");
 	}
 	if (keycode == 99)
 	{
 		app->palette++;
-		redraw(app);
+		mlx_clear_window(app->mlx, app->win);
+		sleep(3);
+		draw(app);
 	}
 	return (0);
 }
