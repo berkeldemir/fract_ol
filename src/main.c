@@ -21,7 +21,8 @@ static double ft_atod(char *s)
 static void	look(t_app *app, int ac, char **av)
 {
 	if (ac != 2)
-		if (!(ac == 4 && !(ft_strcmp(av[1], "julia")) && ft_isnum(av[2]) > 0))
+		if (!(ac == 4 && !(ft_strcmp(av[1], "julia"))
+			&& ft_isnum(av[2]) > 0 && ft_isnum(av[3]) > 0))
 			quit_app(app, ERRARG);
 	if (!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1], "julia"))
 	{
@@ -61,5 +62,6 @@ int main(int ac, char **av)
 	hook(app);
 	draw(app);
 	mlx_loop(app->mlx);
+	mlx_loop_hook(app->mlx, loop_hook, app);
 	//free_all(app);
 }

@@ -14,23 +14,24 @@
 
 static int	close_window(t_app *app)
 {
-	quit_app(app, "Hope you enjoy!");
+	quit_app(app, "Hope you enjoy!\n");
 }
 
-static int	key_hook(int keycode, t_app *app)
+static int	key_hook(int key, t_app *app)
 {
-	ft_printf("\nkeycode: %i", keycode);
-	if (keycode == 65307 || keycode == 113)
+	//ft_printf("\nkeycode: %i", keycode);
+	if (key == XK_Escape || key == XK_q)
 	{
 		ft_printf("\nESC/Q pressed. Shutting Down.\n");
 		quit_app(app, "BYE!");
+		ft_printf("quit is 1 now\n");
+		return (0);
 	}
-	if (keycode == 99)
+	if (key == XK_c)
 	{
 		app->palette++;
-		mlx_clear_window(app->mlx, app->win);
-		sleep(3);
-		draw(app);
+		app->redraw = 1;
+		ft_printf("c basildi\n");
 	}
 	return (0);
 }
@@ -39,6 +40,24 @@ void	hook(t_app *app)
 {
 	mlx_key_hook(app->win, key_hook, app->mlx);
 	mlx_hook(app->win, 17, 0, close_window, &app);
-	// 17 is the event for closing the window with the 'X' button
-//    mlx_loop_hook(app->mlx, render, app);
+	//mlx_loop_hook(app->mlx, draw, app);
 }
+
+int	loop_hook(t_app *app)
+{
+	if (app->quit == 1)
+	{
+		mlx_destroy_window(app->mlx, app->win);
+		return (0);
+	}
+	//ft_printf("imin");
+	if (app->redraw == 1)
+	{
+		ft_printf("im in\n");
+		mlx_clear_window(app->mlx, app->win);
+		draw(app);
+		app->redraw == 0;
+	}
+	return (1);
+}
+

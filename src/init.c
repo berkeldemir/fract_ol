@@ -17,7 +17,7 @@ static void	init_mlx(t_app *app)
 	app->mlx = mlx_init();
 	if (!app->mlx)
 		quit_app(app, ERRMLC);
-	app->win = mlx_new_window(app->mlx, W, H, "fractol");
+	app->win = mlx_new_window(app->mlx, W, H, "fract-ol by beldemir");
 	if (!app->win)
 		quit_app(app, ERRMLC);
 	app->img = mlx_new_image(app->mlx, W, H);
@@ -43,15 +43,17 @@ void    init(t_app *app)
 	app->y = 0;
 	app->offset_x = -0.5;
 	app->offset_y = 0;
-	app->palette = 2;
+	app->palette = 0;
 	app->zoom = 1;
 	app->z.r = 0;
 	app->z.i = 0;
 	app->c.r = 0;
 	app->c.i = 0;
-	app->min_r = -0.9;
-	app->min_i = -0.9;
-	app->max_r = 0.9;
-	app->max_i = 0.9;
+	app->min_r = -1;
+	app->min_i = -1;
+	app->max_r = 1;
+	app->max_i = 1;
+	app->quit = 0;
+	app->redraw = 0;
 	return ;
 }

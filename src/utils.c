@@ -47,6 +47,8 @@ int	ft_isnum(char *s)
 
     isdotused = 0;
     i = 0;
+	if (s[0] == '-' || s[i] == '+')
+		i++;
     while (s[i])
     {
         if (s[i] == '.' || (s[i] <= '9' && s[i] >= '0'))

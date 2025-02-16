@@ -13,6 +13,7 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
+# include <X11/keysym.h>
 # include <unistd.h>
 # include <math.h>
 # include <stdlib.h>
@@ -24,7 +25,7 @@
 
 # define W 1200
 # define H 800
-# define MAX_IT 6
+# define MAX_IT 100
 # define MOVE_FACTOR 0.3
 
 # define ESC 53
@@ -68,6 +69,8 @@ typedef struct s_app
 	double		max_i;
 	double		min_r;
 	double		min_i;
+	int			redraw;
+	int			quit;
 }	t_app;
 
 int		ft_printf(const char *str, ...);
@@ -75,6 +78,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_isnum(char *s);
 int		quit_app(t_app *app, char *msg);
 void	hook(t_app *app);
+int		loop_hook(t_app *app);
 void	init(t_app *app);
 void 	draw(t_app *app);
 int		get_color(t_app *i, int j);
