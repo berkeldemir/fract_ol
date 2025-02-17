@@ -29,9 +29,10 @@ static int	key_hook(int key, t_app *app)
 	}
 	if (key == XK_c)
 	{
+		ft_printf("app->redraw: %i\nc basildi\n", app->redraw);
 		app->palette++;
 		app->redraw = 1;
-		ft_printf("c basildi\n");
+		ft_printf("app->redraw: %i\nc basildi\n", app->redraw);
 	}
 	return (0);
 }
@@ -40,23 +41,28 @@ void	hook(t_app *app)
 {
 	mlx_key_hook(app->win, key_hook, app->mlx);
 	mlx_hook(app->win, 17, 0, close_window, &app);
-	//mlx_loop_hook(app->mlx, draw, app);
+	mlx_loop_hook(app->mlx, loop_hook, app);
 }
 
 int	loop_hook(t_app *app)
 {
+	//ft_printf("app->redraw: %i\n", app->redraw);
+	/*
 	if (app->quit == 1)
 	{
+		ft_printf("hey");
 		mlx_destroy_window(app->mlx, app->win);
 		return (0);
 	}
+		*/
 	//ft_printf("imin");
+	app->redraw == 1;
 	if (app->redraw == 1)
 	{
-		ft_printf("im in\n");
-		mlx_clear_window(app->mlx, app->win);
+		ft_printf("burdayim\n");
+		app->palette++;
 		draw(app);
-		app->redraw == 0;
+		//app->redraw = 0;
 	}
 	return (1);
 }

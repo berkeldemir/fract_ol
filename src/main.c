@@ -27,21 +27,22 @@ static void	look(t_app *app, int ac, char **av)
 	if (!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1], "julia"))
 	{
 		if (!ft_strcmp(av[1], "mandelbrot"))
-		{
 			app->set = 'm';
-		}
-		else if (!ft_strcmp(av[1], "julia"))
+		else
 			app->set = 'j';
 	}
-	else	
-		ft_printf("WTF\n");
+	else
+		quit_app(app, ERRARG);
 	if (ac == 4)
+	{
 		app->v1 = ft_atod(av[2]);
 		app->v2 = ft_atod(av[3]);
+	}
 }
 
 void draw(t_app *app)
 {
+	mlx_clear_window(app->mlx, app->win);
 	ft_printf("-> In draw function\n");
 	if (app->set == 'm')
 		mandelbrot(app);
@@ -62,6 +63,6 @@ int main(int ac, char **av)
 	hook(app);
 	draw(app);
 	mlx_loop(app->mlx);
-	mlx_loop_hook(app->mlx, loop_hook, app);
+	//mlx_loop_hook(app->mlx, loop_hook, app);
 	//free_all(app);
 }
