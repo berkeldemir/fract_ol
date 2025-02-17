@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/17 20:27:44 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/17 23:52:54 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,36 @@ static int	close_window(t_app *app)
 static int	key(int key, t_app *app)
 {
 	printall(app);
+	//ft_printf("key: %i\n", key);
+	if (app->palette == 2147483647)
+			app->palette = 0;
 	if (key == XK_Escape || key == XK_q)
 		quit_app(app, "BYE!");
-	if (key == XK_c)
-		app->palette++;
+	else if (key == XK_c)
+			app->palette++;
+	else if (key == XK_1)
+		app->palette = 0;
+	else if (key == XK_2)
+		app->palette = 1;
+	else if (key == XK_3)
+		app->palette = 2;
+	else if (key == XK_4)
+		app->palette = 3;
+	else if (key == XK_Left)
+		app->o_x -= 0.1 / ZOOM;
+	else if (key == XK_Right)
+		app->o_x += 0.1 / ZOOM ;
+	else if (key == XK_Up)
+		app->o_y -= 0.1 / ZOOM;
+	else if (key == XK_Down)
+		app->o_y += 0.1 / ZOOM;
+	else if (key == XK_u)
+	{
+		app->max_r -= 0.1;
+		app->min_r += 0.1;
+		app->max_i -= 0.1;
+		app->min_i += 0.1;
+	}
 	else
 		return (1);
 	draw(app);
@@ -53,7 +79,14 @@ static	int mouse(int key, t_app *app)
 {
 	if (key == 5)
 		zoom_in(app);
+	/*
+	else if (key == 6)
+		;//zoom_out(app);
+	*/
+	else
+		return (1);
 	draw(app);
+	return (0);
 }
 
 void	hook(t_app *app)
