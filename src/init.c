@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:03:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 21:45:40 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/17 20:17:05 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,9 @@ void    init(t_app *app)
 	}
 	app->x = 0;
 	app->y = 0;
-	app->offset_x = -0.5;
-	app->offset_y = 0;
+	app->o_x = -0.5;
+	app->o_y = 0;
 	app->palette = 0;
-	app->zoom = 1;
 	app->z.r = 0;
 	app->z.i = 0;
 	app->c.r = 0;
@@ -53,7 +52,6 @@ void    init(t_app *app)
 	app->min_i = -1;
 	app->max_r = 1;
 	app->max_i = 1;
-	app->quit = 0;
-	app->redraw = 0;
+	printall(app);
 	return ;
 }

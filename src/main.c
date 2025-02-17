@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 21:03:09 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/17 20:28:57 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,5 @@ int main(int ac, char **av)
 	hook(app);
 	draw(app);
 	mlx_loop(app->mlx);
-	//mlx_loop_hook(app->mlx, loop_hook, app);
-	//free_all(app);
+	return (0);
 }

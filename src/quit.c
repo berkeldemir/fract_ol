@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:43:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 21:46:49 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/17 19:22:01 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int	quit_app(t_app *app, char *msg)
 	free(app->mlx);
 	app->mlx = NULL;
 	*/
-	app->quit = 1;
 	if (msg[0] == '\0')
 		;
 	else

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 21:03:18 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/17 20:22:05 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@
 # include "./mlx/mlx.h"
 
 # define W 1200
-# define H 800
+# define H 1200
 # define MAX_IT 100
-# define MOVE_FACTOR 0.3
+# define ZOOM 1.0
+
 
 # define ESC 53
 # define R 15
@@ -61,20 +62,18 @@ typedef struct s_app
 	int			y;
 	t_complex	z;
 	t_complex	c;
-	double		offset_x;
-	double		offset_y;
+	double		o_x;
+	double		o_y;
 	int			palette;
-	double		zoom;
 	double		max_r;
 	double		max_i;
 	double		min_r;
 	double		min_i;
-	int			redraw;
-	int			quit;
 }	t_app;
 
 int		ft_printf(const char *str, ...);
 int		ft_strcmp(const char *s1, const char *s2);
+void	printall(t_app *i);
 int		ft_isnum(char *s);
 int		quit_app(t_app *app, char *msg);
 void	hook(t_app *app);
@@ -82,6 +81,7 @@ int		loop_hook(t_app *app);
 void	init(t_app *app);
 void 	draw(t_app *app);
 int		get_color(t_app *i, int j);
+void    zoom_in(t_app *i);
 void	mandelbrot(t_app *app);
 
 #endif
