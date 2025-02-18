@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/17 20:28:57 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/18 00:10:59 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	look(t_app *app, int ac, char **av)
 void draw(t_app *app)
 {
 	mlx_clear_window(app->mlx, app->win);
-	ft_printf("-> In draw function\n");
+	//ft_printf("-> In draw function\n");
 	if (app->set == 'm')
 		mandelbrot(app);
 	else if (app->set == 'j')

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/17 21:06:41 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/18 00:37:21 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 # define W 1200
 # define H 1200
-# define MAX_IT 100
+# define MAX_IT 42
 # define ZOOM 1.0
 
 
@@ -48,27 +48,28 @@ typedef struct s_complex
 
 typedef struct s_app
 {
-	void		*mlx;
-	void		*win;
-	void		*img;
-	void		*ptr;
-	int			bpp;
-	int			size;
-	int			endian;
-	char		set;
-	double		v1;
-	double		v2;
-	int			x;
-	int			y;
-	t_complex	z;
-	t_complex	c;
-	double		o_x;
-	double		o_y;
-	int			palette;
-	double		max_r;
-	double		max_i;
-	double		min_r;
-	double		min_i;
+	void			*mlx;
+	void			*win;
+	void			*img;
+	void			*ptr;
+	int				bpp;
+	int				size;
+	int				endian;
+	char			set;
+	double			v1;
+	double			v2;
+	int				x;
+	int				y;
+	t_complex		z;
+	t_complex		c;
+	double			o_x;
+	double			o_y;
+	unsigned long	zoom;
+	int				palette;
+	double			max_r;
+	double			max_i;
+	double			min_r;
+	double			min_i;
 }	t_app;
 
 int		ft_printf(const char *str, ...);
