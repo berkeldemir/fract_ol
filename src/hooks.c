@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/18 04:54:35 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/18 07:46:39 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,17 @@
 
 static int	close_window(t_app *app)
 {
-	quit_app(app, "Hope you enjoy!\n");
+	quit_app(app, ERRMOK);
 }
 
 static int	key(int key, t_app *app)
 {
-	//printall(app);
-	//ft_printf("key: %i\n", key);
 	if (app->palette == 2147483647)
 			app->palette = 3;
 	if (key == XK_Escape || key == XK_q)
 		quit_app(app, "BYE!");
 	else if (key == XK_c)
-			app->palette++;
+		app->palette++;
 	else if (key == XK_1)
 		app->palette = 0;
 	else if (key == XK_2)

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:10:45 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/18 05:10:22 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/18 07:53:37 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ static void	calc(t_app *i)
 
 void	julia(t_app *i)
 {
+	i->y = 0;
 	while (i->y < H)
 	{
 		i->x = 0;
