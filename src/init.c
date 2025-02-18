@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:03:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/18 01:52:12 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/18 05:10:44 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,22 +41,22 @@ void    init(t_app *app)
 	init_mlx(app);
 	if (!app->v1 || !app->v2)
 	{
-		app->v1 = -0.500934;
-		app->v2	= -0.515513;
+		app->v1 = -0.8;
+		app->v2	= 0.156;
 	}
 	app->x = 0;
 	app->y = 0;
-	app->o_x = -0.5;
+	app->o_x = 0;
 	app->o_y = 0;
 	app->palette = 0;
 	app->z.r = 0;
 	app->z.i = 0;
 	app->c.r = 0;
 	app->c.i = 0;
-	app->min_r = -1;
-	app->min_i = -1;
-	app->max_r = 1;
-	app->max_i = 1;
+	app->min_r = -1.2;
+	app->min_i = -1.2;
+	app->max_r = 1.2;
+	app->max_i = 1.2;
 	app->zoom = 1;
 	//printall(app);
 	return ;

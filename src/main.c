@@ -6,17 +6,11 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/18 00:10:59 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/18 05:13:12 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
-
-static double ft_atod(char *s)
-{
-	// Edit.
-	return (0.0);
-}
 
 static void	look(t_app *app, int ac, char **av)
 {
@@ -47,7 +41,7 @@ void draw(t_app *app)
 	if (app->set == 'm')
 		mandelbrot(app);
 	else if (app->set == 'j')
-		ft_printf("-> Julia set cannot print atm\n") ;
+		julia(app);
 	mlx_put_image_to_window(app->mlx, app->win, app->img, 0, 0);
 }
 

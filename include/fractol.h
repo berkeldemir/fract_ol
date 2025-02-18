@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/18 00:37:21 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/18 05:12:54 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ typedef struct s_app
 
 int		ft_printf(const char *str, ...);
 int		ft_strcmp(const char *s1, const char *s2);
+double	ft_atod(char *s);
 void	printall(t_app *i);
 int		ft_isnum(char *s);
 int		quit_app(t_app *app, char *msg);
@@ -82,7 +83,9 @@ int		loop_hook(t_app *app);
 void	init(t_app *app);
 void 	draw(t_app *app);
 int		get_color(t_app *i, int j);
-void    zoom_in(t_app *i);
-void	mandelbrot(t_app *app);
+void    zoom_in(t_app *app, int x, int y);
+void	zoom_out(t_app *app, int x, int y);
+void	mandelbrot(t_app *i);
+void	julia(t_app *i);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:10:45 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 20:29:59 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/18 05:10:22 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ void	julia(t_app *i)
 		i->x = 0;
 		while (i->x < W)
 		{
-			i->c.r = (i->x / (double)W) * (i->max_r - i->min_r) * i->zoom + i->min_r + i->offset_x;
-			i->c.i = (i->y / (double)H) * (i->max_i - i->min_i) * i->zoom + i->min_i + i->offset_y;
-			i->z.i = i->v1;
-			i->z.r = i->v2;
+			i->c.r = i->v1;
+			i->c.i = i->v2;
+			i->z.i = (i->y / (double)H) * (i->max_i - i->min_i) * i->zoom + i->min_i + i->o_y;
+			i->z.r = (i->x / (double)W) * (i->max_r - i->min_r) * i->zoom + i->min_r + i->o_x;
 			calc(i);
 			i->x++;
 		}

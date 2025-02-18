@@ -6,30 +6,12 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/18 02:14:16 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/18 04:54:35 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 #include <stdio.h>
-void	printall(t_app *i)
-{
-	printf("\n------------------------------------------\n");
-	printf("x: %i\n", i->x);
-	printf("y: %i\n", i->y);
-	printf("o_x: %f\n", i->o_x);
-	printf("o_y: %f\n", i->o_y);
-	printf("palette: %i\n", i->palette);
-	printf("z.r: %f\n", i->z.r);
-	printf("z.i: %f\n", i->z.i);
-	printf("c.r: %f\n", i->c.r);
-	printf("c.i: %f\n", i->c.i);
-	printf("min_r: %f\n", i->min_r);
-	printf("min_i: %f\n", i->min_i);
-	printf("max_r: %f\n", i->max_r);
-	printf("max_i: %f\n", i->max_i);
-	printf("------------------------------------------\n");
-}
 
 static int	close_window(t_app *app)
 {
@@ -78,14 +60,12 @@ static int	key(int key, t_app *app)
 	return (0);
 }
 
-static	int mouse(int key, t_app *app)
+static	int mouse(int key, int x, int y, t_app *app)
 {
 	if (key == SCROLL_UP)
-		zoom_in(app);
-	/*
-	else if (key == 6)
-		;//zoom_out(app);
-	*/
+		zoom_in(app, app->x, app->y);
+	if (key == SCROLL_DOWN)
+		zoom_out(app, app->x, app->y);
 	else
 		return (1);
 	draw(app);

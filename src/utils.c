@@ -6,38 +6,36 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:00:59 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/13 14:03:28 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/18 05:12:40 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-double	ft_atof(char *s)
+double	ft_atod(char *s)
 {
-	double	nb;
+	double	num;
 	double	dec;
 	int		sign;
 
-	nb = 0;
+	num = 0;
 	sign = 1;
 	dec = 1;
 	while ((*s >= 9 && *s <= 13) || *s == 32)
 		s++;
-	while (*s == '+' || *s == '-')
-	{
+	if (*s == '+' || *s == '-')
 		if (*s++ == '-')
 			sign *= -1;
-	}
 	while (*s != '.' && *s != '\0')
-		nb = (nb * 10) + (*s++ - 48);
+		num = (num * 10) + (*s++ - 48);
 	if (*s == '.')
-		++s;
+		s++;
 	while (*s != '\0')
 	{
 		dec /= 10;
-		nb = nb + (*s++ - 48) * dec;
+		num = num + (*s++ - 48) * dec;
 	}
-	return (nb * sign);
+	return (num * sign);
 }
 
 int	ft_isnum(char *s)
