@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/19 19:39:58 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 01:08:39 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ static void	look(t_app *app, int ac, char **av)
 	}
 	else
 		quit_app(app, ERRARG);
-	if (ac == 4)
-	{
-		app->v1 = ft_atod(av[2]);
-		app->v2 = ft_atod(av[3]);
-	}
 }
 
 void	draw(t_app *app)
@@ -53,13 +48,18 @@ int	main(int ac, char **av)
 {
 	t_app	*app;
 
-	app = malloc(sizeof(t_app));
+	app = ft_calloc(sizeof(t_app));
 	if (!app)
 		quit_app(app, ERRMLC);
 	look(app, ac, av);
 	init(app);
 	banner();
 	hook(app);
+	if (ac == 4)
+	{
+		app->v1 = ft_atod(av[2]);
+		app->v2 = ft_atod(av[3]);
+	}
 	draw(app);
 	mlx_loop(app->mlx);
 	return (0);

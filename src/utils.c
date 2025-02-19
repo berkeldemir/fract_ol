@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:00:59 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/19 19:41:15 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 01:18:14 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,35 @@
 
 void	banner(void)
 {
-	ft_printf("\e[0;33m\n\\\\\\\\\\\\\\ fractol by beldemir \\\\\\\\\\\\\\\n");
-	ft_printf("////////// W E L C O M E //////////\n\n");
+	ft_printf("\e[0;34m\n\\\\\\\\\\\\\\ \e[1;35mfractol by beldemir\e[0;34m \
+///////\n");
+	ft_printf("//////////\e[1;35m W E L C O M E \e[0;34m\
+\\\\\\\\\\\\\\\\\\\\\n");
 	ft_printf(" You can use WASD, direction keys \n");
 	ft_printf("  and mouse wheel to move around. \n\n");
 	ft_printf("------------ Shortcuts ------------\n");
-	ft_printf("1/2/3/4 : Select palette\n");
+	ft_printf("1 -> 5  : Select palette\n");
 	ft_printf("C       : Change palette\n");
 	ft_printf("Z       : Toggle mouse centred zoom\n");
 	ft_printf("L Click : Center the choosen area\n");
 	ft_printf("R       : Reload\n");
 	ft_printf("H       : Help\n");
-	ft_printf("Q / ESC : Quit game\n\n\e[0m");
+	ft_printf("Q / ESC : Quit\n\n\e[0m");
 	return ;
+}
+
+t_app	*ft_calloc(int size)
+{
+	t_app			*ret;
+	unsigned char	*ptr;
+
+	ret = (t_app *)malloc(size);
+	if (!ret)
+		return (quit_app(NULL, ERRMLC), NULL);
+	ptr = (unsigned char *)ret;
+	while (size--)
+		ptr[size] = 0;
+	return (ret);
 }
 
 double	ft_atod(char *s)

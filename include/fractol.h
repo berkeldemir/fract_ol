@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/19 19:22:13 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 00:50:35 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@
 # include <float.h>
 # include "./mlx/mlx.h"
 
-# define W 600.0
-# define H 600.0
+# define W 500.0
+# define H 500.0
 # define MAX_IT 200
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
@@ -72,16 +72,18 @@ int		ft_printf(const char *str, ...);
 int		ft_strcmp(const char *s1, const char *s2);
 double	ft_atod(char *s);
 int		ft_isnum(char *s);
+t_app	*ft_calloc(int size);
 int		get_color(t_app *i, int j);
 int		quit_app(t_app *app, char *msg);
 void	hook(t_app *app);
 void	init(t_app *app);
 void 	draw(t_app *app);
-void	move(t_app *app, char way);
+void	move(t_app *app, int key);
 void	zoom(t_app *app, char io, int x, int y);
 void	center(t_app *app, int x, int y);
 void	mandelbrot(t_app *i);
 void	julia(t_app *i);
+void	rejulia(t_app *app, int key);
 //void 	newton(t_app *i);
 
 #endif

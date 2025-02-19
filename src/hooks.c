@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/19 19:38:33 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 01:17:46 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ static int	close_window(t_app *app)
 
 static int	key2(int key, t_app *app)
 {
-	if (key == XK_r || key == XK_R)
+	if (key == XK_5)
+		app->palette = 4;
+	else if (key == XK_r || key == XK_R)
 		init(app);
 	else if (key == XK_h || key == XK_H)
 		banner();
@@ -56,14 +58,15 @@ static int	key(int key, t_app *app)
 		app->palette = 2;
 	else if (key == XK_4)
 		app->palette = 3;
-	else if (key == XK_Left || key == XK_a || key == XK_A)
-		move(app, 'l');
-	else if (key == XK_Right || key == XK_d || key == XK_D)
-		move(app, 'r');
-	else if (key == XK_Up || key == XK_w || key == XK_W)
-		move(app, 'u');
-	else if (key == XK_Down || key == XK_s || key == XK_S)
-		move(app, 'd');
+	else if (key == XK_Left || key == XK_a || key == XK_A || \
+	key == XK_Right || key == XK_d || key == XK_D || \
+	key == XK_Up || key == XK_w || key == XK_W || \
+	key == XK_Down || key == XK_s || key == XK_S)
+		move(app, key);
+	else if ((app->set == 'j') && (key == XK_o || key == XK_O || \
+	key == XK_l || key == XK_L || key == XK_u || key == XK_U || \
+	key == XK_j || key == XK_J))
+		rejulia(app, key);
 	else if (key2(key, app) == 0)
 		;
 	else

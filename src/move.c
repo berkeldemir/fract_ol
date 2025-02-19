@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:48:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/19 19:43:54 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 01:17:58 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ void	center(t_app *app, int x, int y)
 	app->o_y += (y - (H / 2)) * (ratio_i / H);
 }
 
-void	move(t_app *app, char way)
+void	move(t_app *app, int key)
 {
 	double	move_factor;
 
 	move_factor = 0.2 * (app->max_r - app->min_r);
-	if (way == 'l')
+	if (key == XK_Left || key == XK_a || key == XK_A)
 		app->o_x -= move_factor;
-	else if (way == 'r')
+	else if (key == XK_Right || key == XK_d || key == XK_D)
 		app->o_x += move_factor;
-	else if (way == 'u')
+	else if (key == XK_Up || key == XK_w || key == XK_W)
 		app->o_y -= move_factor;
-	else if (way == 'd')
+	else if (key == XK_Down || key == XK_s || key == XK_S)
 		app->o_y += move_factor;
 }
 

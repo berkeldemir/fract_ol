@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:10:45 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/19 19:30:47 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 01:15:52 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,29 @@ void	julia(t_app *i)
 		}
 		i->y++;
 	}
+}
+
+void	rejulia(t_app *app, int key)
+{
+	double	shift;
+
+	shift = 0.04;
+	if (key == XK_o || key == XK_O)
+		app->v2 += shift;
+	else if (key == XK_l || key == XK_L)
+		app->v2 -= shift;
+	else if (key == XK_u || key == XK_U)
+		app->v1 += shift;
+	else if (key == XK_j || key == XK_J)
+		app->v1 -= shift;
+	ft_printf("-----Julia set has been updated.----|\n");
+	ft_printf("| Reel: ");
+	ft_printf("%i.%i", (int)app->v1, \
+	(int)((app->v1 - (int)app->v1) * 10000000));
+	ft_printf(" | Imag: ");
+	ft_printf("%i.%i", (int)app->v2, \
+	(int)((app->v2 - (int)app->v2) * 10000000));
+	ft_printf(" |\n");
+	ft_printf("'-----------------------------------'\n");
+	draw(app);
 }
