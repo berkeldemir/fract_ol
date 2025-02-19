@@ -6,13 +6,13 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:13:21 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/17 20:32:58 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:28:27 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-static int palette_0(int j)
+static int	palette_0(int j)
 {
 	if (j % 10 == 0)
 		return (0xE39090);
@@ -37,7 +37,7 @@ static int palette_0(int j)
 	return (0xE39090);
 }
 
-static int palette_1(int j)
+static int	palette_1(int j)
 {
 	if (j % 10 == 0)
 		return (0xFF5C8D);
@@ -62,7 +62,7 @@ static int palette_1(int j)
 	return (0xFF5C8D);
 }
 
-static int palette_2(int j)
+static int	palette_2(int j)
 {
 	if (j % 10 == 0)
 		return (0xE71D36);
@@ -87,7 +87,7 @@ static int palette_2(int j)
 	return (0xE71D36);
 }
 
-static int palette_3(int j)
+static int	palette_3(int j)
 {
 	if (j % 10 == 0)
 		return (0x7B0A3C);
@@ -112,10 +112,10 @@ static int palette_3(int j)
 	return (0x7B0A3C);
 }
 
-int get_color(t_app *i, int j)
+int	get_color(t_app *i, int j)
 {
-	int color;
-	
+	int	color;
+
 	color = 0x000000;
 	if (i->palette % 4 == 0)
 		color = palette_0(j);

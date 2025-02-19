@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/19 16:10:07 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:22:13 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,12 @@
 # include <pthread.h>
 # include <float.h>
 # include "./mlx/mlx.h"
-#	include "stdio.h"
 
 # define W 600.0
 # define H 600.0
-# define MAX_IT 100
-# define Z 1.0
-
-# define ESC 53
-# define R 15
-# define C 8
-
+# define MAX_IT 200
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
-
-#define A 0.85
-#define B 6.0
-#define U 0.9
 
 # define ERRARG "Invalid argument count/value. ./fractol <mandelbrot/julia>"
 # define ERRMLC "Malloc failed."
@@ -70,15 +59,15 @@ typedef struct s_app
 	t_complex		c;
 	double			o_x;
 	double			o_y;
-	unsigned long	zoom;
 	int				palette;
+	int				center;
 	double			max_r;
 	double			max_i;
 	double			min_r;
 	double			min_i;
 }	t_app;
 
-void	printall(t_app *i);
+void	banner(void);
 int		ft_printf(const char *str, ...);
 int		ft_strcmp(const char *s1, const char *s2);
 double	ft_atod(char *s);
@@ -89,7 +78,7 @@ void	hook(t_app *app);
 void	init(t_app *app);
 void 	draw(t_app *app);
 void	move(t_app *app, char way);
-void    zoom(t_app *app, double factor, int x, int y);
+void	zoom(t_app *app, char io, int x, int y);
 void	center(t_app *app, int x, int y);
 void	mandelbrot(t_app *i);
 void	julia(t_app *i);

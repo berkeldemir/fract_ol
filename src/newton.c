@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:10:45 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/19 14:05:37 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:24:01 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ static void	color(t_app *i, int iter)
 		col = get_color(i, iter);
 	pixel = i->ptr + (i->y * i->size + i->x * (i->bpp / 8));
 	*(unsigned int *)pixel = col;
-}
-
-static void calc2(t_app *i)
-{
-	
 }
 
 static void	calc(t_app *i)

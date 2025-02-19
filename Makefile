@@ -6,12 +6,12 @@
 #    By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 13:43:40 by beldemir          #+#    #+#              #
-#    Updated: 2025/02/19 09:04:38 by beldemir         ###   ########.fr        #
+#    Updated: 2025/02/19 19:22:38 by beldemir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = #-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 NAME = fractol
 SRCS = ./src/main.c \
 		./src/init.c \

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:43:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/19 09:18:08 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:32:08 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	quit_app(t_app *app, char *msg)
 	if (app->mlx)
 		mlx_destroy_display(app->mlx);
 	free(app->mlx);
-	//free(app->ptr);
 	app->mlx = NULL;
 	app->ptr = NULL;
 	if (msg[0] == '\0')
