@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/18 07:49:39 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:10:07 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@
 # include <pthread.h>
 # include <float.h>
 # include "./mlx/mlx.h"
+#	include "stdio.h"
 
-# define W 1200
-# define H 1200
-# define MAX_IT 200
-# define ZOOM 1.0
+# define W 600.0
+# define H 600.0
+# define MAX_IT 100
+# define Z 1.0
 
 # define ESC 53
 # define R 15
@@ -87,8 +88,9 @@ int		quit_app(t_app *app, char *msg);
 void	hook(t_app *app);
 void	init(t_app *app);
 void 	draw(t_app *app);
-void    zoom_in(t_app *app, int x, int y);
-void	zoom_out(t_app *app, int x, int y);
+void	move(t_app *app, char way);
+void    zoom(t_app *app, double factor, int x, int y);
+void	center(t_app *app, int x, int y);
 void	mandelbrot(t_app *i);
 void	julia(t_app *i);
 //void 	newton(t_app *i);

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/18 07:46:39 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/19 16:09:48 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,38 +34,37 @@ static int	key(int key, t_app *app)
 		app->palette = 2;
 	else if (key == XK_4)
 		app->palette = 3;
-	else if (key == XK_Left)
-		app->o_x -= 0.08 / app->zoom;
-	else if (key == XK_Right)
-		app->o_x += 0.08 / app->zoom;
-	else if (key == XK_Up)
-		app->o_y -= 0.08 / app->zoom;
-	else if (key == XK_Down)
-		app->o_y += 0.08 / app->zoom;
-	else if (key == XK_u)
-	{
-		app->zoom++;
-    	app->max_r -= 0.8 / app->zoom;
-		app->min_r += 0.8 / app->zoom;
-		app->max_i -= 0.8 / app->zoom;
-		app->min_i += 0.8 / app->zoom;
-	}
+	else if (key == XK_Left || key == XK_a || key == XK_A)
+		move(app, 'l');
+	else if (key == XK_Right || key == XK_d || key == XK_D)
+		move(app, 'r');
+	else if (key == XK_Up || key == XK_w || key == XK_W)
+		move(app, 'u');
+	else if (key == XK_Down || key == XK_s || key == XK_S)
+		move(app, 'd');
 	else if (key == XK_r)
 		init(app);
 	else
+	{
+		printall(app);
 		return (1);
+	}
 	draw(app);
 	return (0);
 }
 
 static	int mouse(int key, int x, int y, t_app *app)
 {
+	ft_printf("key %i\n", key);
 	if (key == SCROLL_UP)
-		zoom_in(app, app->x, app->y);
-	if (key == SCROLL_DOWN)
-		zoom_out(app, app->x, app->y);
+		zoom(app, 1.5, x, y);
+	else if (key == SCROLL_DOWN)
+		zoom(app, 0.5, x, y);
+	else if (key == 1)
+		center(app, x, y);
 	else
 		return (1);
+	printall(app);
 	draw(app);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:03:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/18 07:00:25 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:47:46 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void    init(t_app *app)
 	app->z.i = 0;
 	app->c.r = 0;
 	app->c.i = 0;
-	app->min_r = -1.2;
-	app->min_i = -1.2;
-	app->max_r = 1.2;
-	app->max_i = 1.2;
+	app->min_r = -1.3;
+	app->min_i = -1.3;
+	app->max_r = 1.3;
+	app->max_i = 1.3;
 	app->zoom = 1;
 	//printall(app);
 	return ;

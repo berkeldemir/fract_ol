@@ -6,12 +6,11 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/18 07:49:42 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/19 11:29:10 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
-#	include "stdio.h"
 void	printall(t_app *i)
 {
 	printf("\n------------------------------------------\n");
@@ -24,6 +23,7 @@ void	printall(t_app *i)
 	printf("z.i: %f\n", i->z.i);
 	printf("c.r: %f\n", i->c.r);
 	printf("c.i: %f\n", i->c.i);
+	printf("zoom: %f\n", i->zoom);
 	printf("min_r: %f\n", i->min_r);
 	printf("min_i: %f\n", i->min_i);
 	printf("max_r: %f\n", i->max_r);
@@ -65,7 +65,7 @@ void draw(t_app *app)
 		julia(app);
 	else if (app->set == 'n')
 		 ;//newton(app);
-	printall(app);
+	//printall(app);
 	mlx_put_image_to_window(app->mlx, app->win, app->img, 0, 0);
 }
 
