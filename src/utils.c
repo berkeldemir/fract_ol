@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:00:59 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 04:59:32 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:36:25 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,17 @@ void	banner(void)
 	return ;
 }
 
-void	*ft_calloc(int size)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	void			*ret;
-	unsigned char	*ptr;
+	unsigned char	*p;
 
-	ret = malloc(size);
-	if (!ret)
-		return (quit_app(NULL, ERRMLC), NULL);
-	ptr = (unsigned char *)ret;
-	while (size--)
-		ptr[size] = 0;
-	return (ret);
+	p = (unsigned char *)b;
+	while (len > 0)
+	{
+		p[len - 1] = c;
+		len--;
+	}
+	return (b);
 }
 
 double	ft_atod(char *s)

@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 05:02:45 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:39:25 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	main(int ac, char **av)
 	app = (t_app *)malloc(sizeof(t_app));
 	if (!app)
 		quit_app(app, ERRMLC);
+	ft_memset((void *)app, 0, sizeof(t_app));
 	look(app, ac, av);
 	init(app);
 	banner();
@@ -62,5 +63,6 @@ int	main(int ac, char **av)
 	}
 	draw(app);
 	mlx_loop(app->mlx);
+	quit_app(app, ERRMOK);
 	return (0);
 }

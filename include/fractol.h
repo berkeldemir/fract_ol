@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 05:32:18 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:36:57 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ imaginer parts of c for Julia!\n\
 ex: ./fractal julia -0.4 0.6\n"
 # define ERRMLC "Malloc failed."
 # define ERRMOK "Hope you enjoy!"
-
-# define ERR
 
 typedef struct s_complex
 {
@@ -76,11 +74,10 @@ typedef struct s_app
 void	banner(void);
 int		ft_printf(const char *str, ...);
 int		ft_strcmp(const char *s1, const char *s2);
+void	*ft_memset(void *b, int c, size_t len);
 double	ft_atod(char *s);
 int		ft_isnum(char *s);
-//void	*ft_calloc(int size)
 int		get_color(t_app *i, int j);
-int		quit_app(t_app *app, char *msg);
 void	hook(t_app *app);
 void	init(t_app *app);
 void 	draw(t_app *app);
@@ -91,6 +88,6 @@ void	mandelbrot(t_app *i);
 void	julia(t_app *i);
 void	rejulia(t_app *app, int key);
 void	feature(t_app *i);
-//void 	newton(t_app *i);
+int		quit_app(t_app *app, char *msg);
 
 #endif
