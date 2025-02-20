@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 01:08:39 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 02:48:34 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ static void	look(t_app *app, int ac, char **av)
 			&& ft_isnum(av[2]) > 0 && ft_isnum(av[3]) > 0))
 			quit_app(app, ERRARG);
 	if (!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1], "julia") \
-		|| !ft_strcmp(av[1], "newton"))
+		|| !ft_strcmp(av[1], "tornado"))
 	{
 		if (!ft_strcmp(av[1], "mandelbrot"))
 			app->set = 'm';
-		else if (!ft_strcmp(av[1], "newton"))
-			app->set = 'n';
+		else if (!ft_strcmp(av[1], "tornado"))
+			app->set = 't';
 		else
 			app->set = 'j';
 	}
@@ -39,8 +39,8 @@ void	draw(t_app *app)
 		mandelbrot(app);
 	else if (app->set == 'j')
 		julia(app);
-	else if (app->set == 'n')
-		quit_app(app, "");
+	else if (app->set == 't')
+		tornado(app);
 	mlx_put_image_to_window(app->mlx, app->win, app->img, 0, 0);
 }
 
@@ -48,7 +48,7 @@ int	main(int ac, char **av)
 {
 	t_app	*app;
 
-	app = ft_calloc(sizeof(t_app));
+	app = (t_app *)malloc(sizeof(t_app));
 	if (!app)
 		quit_app(app, ERRMLC);
 	look(app, ac, av);

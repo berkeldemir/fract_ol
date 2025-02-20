@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   tornado.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/12 16:10:45 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 03:20:42 by beldemir         ###   ########.fr       */
+/*   Created: 2025/02/20 02:07:54 by beldemir          #+#    #+#             */
+/*   Updated: 2025/02/20 04:19:47 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,30 +24,41 @@ static void	color(t_app *i, int j)
 	pixel = i->ptr + (i->y * i->size + i->x * (i->bpp / 8));
 	*(unsigned int *)pixel = color;
 }
+/*
+static void complex_pow(double r, double i, double exponent, double *new_r, double *new_i) {
+    double mag = sqrt(r * r + i * i);
+    double theta = atan2(i, r);
+
+    double new_mag = pow(mag, exponent);
+    double new_theta = exponent * theta;
+
+    *new_r = new_mag * cos(new_theta);
+    *new_i = new_mag * sin(new_theta);
+}
+*/
 
 static void	calc(t_app *i)
 {
-	double	i2;
-	double	r2;
-	double	temp;
 	int		j;
 
 	j = 0;
 	while (j < MAX_IT)
 	{
-		i2 = i->z.i * i->z.i;
-		r2 = i->z.r * i->z.r;
-		if (i2 + r2 > 4)
+		double modulus = sqrt(i->z.r * i->z.r + i->z.i * i->z.i);
+		double arg = atan2(i->z.i, i->z.r);
+		double p = 2.3; // Try changing this value
+
+		i->z.r = pow(modulus, p) * cos(p * arg) - i->c.r;
+		i->z.i = pow(modulus, p) * sin(p * arg) - i->c.i;
+
+		if ((i->z.i * i->z.i) + (i->z.r * i->z.r) > 36)
 			break ;
-		temp = r2 - i2 + i->c.r;
-		i->z.i = (2.0 * i->z.i * i->z.r) + i->c.i;
-		i->z.r = temp;
 		j++;
 	}
 	color(i, j);
 }
 
-void	mandelbrot(t_app *i)
+void	tornado(t_app *i)
 {
 	i->y = 0;
 	while (i->y < H)
@@ -59,11 +70,13 @@ void	mandelbrot(t_app *i)
 			i->min_r + i->o_x;
 			i->c.i = (i->y / H) * (i->max_i - i->min_i) + \
 			i->min_i + i->o_y;
-			i->z.i = 0;
-			i->z.r = 0;
+			i->z.i = 0.0;
+			i->z.r = 0.0;
 			calc(i);
 			i->x++;
 		}
 		i->y++;
 	}
+
+	ft_printf("done\n");
 }

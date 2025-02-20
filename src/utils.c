@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:00:59 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 01:18:14 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 01:45:33 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	banner(void)
 	return ;
 }
 
-t_app	*ft_calloc(int size)
+void	*ft_calloc(int size)
 {
-	t_app			*ret;
+	void			*ret;
 	unsigned char	*ptr;
 
-	ret = (t_app *)malloc(size);
+	ret = malloc(size);
 	if (!ret)
 		return (quit_app(NULL, ERRMLC), NULL);
 	ptr = (unsigned char *)ret;
