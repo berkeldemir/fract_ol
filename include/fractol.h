@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 04:11:45 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:32:18 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,17 @@
 
 # define W 600.0
 # define H 600.0
-# define MAX_IT 100
+# define MAX_IT 294
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 
-# define ERRARG "Invalid argument count/value. ./fractol <mandelbrot/julia>"
+# define ERRARG "Invalid argument count/value.\n\
+-----------------------------------\n\
+Sets : \e[1;31mmandelbrot, julia, feature\e[0;31m\n\
+Usage: \e[1;31m./fractol <set_name>\e[0;31m\n\
+\e[2;31mTip  : You can choose real and \n\
+imaginer parts of c for Julia!\n\
+ex: ./fractal julia -0.4 0.6\n"
 # define ERRMLC "Malloc failed."
 # define ERRMOK "Hope you enjoy!"
 
@@ -67,11 +73,6 @@ typedef struct s_app
 	double			min_i;
 }	t_app;
 
-typedef struct	s_n
-{
-	
-}	t_n;
-
 void	banner(void);
 int		ft_printf(const char *str, ...);
 int		ft_strcmp(const char *s1, const char *s2);
@@ -89,7 +90,7 @@ void	center(t_app *app, int x, int y);
 void	mandelbrot(t_app *i);
 void	julia(t_app *i);
 void	rejulia(t_app *app, int key);
-void	tornado(t_app *i);
+void	feature(t_app *i);
 //void 	newton(t_app *i);
 
 #endif

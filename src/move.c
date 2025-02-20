@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:48:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 01:17:58 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:04:47 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	zoom(t_app *app, char io, int x, int y)
 {
 	double	c;
 
-	if (app->center % 2 == 1)
+	if (app->center % 2 == 1 && io == 'i')
 		center(app, x, y);
 	c = 0.2 * (app->max_r - app->min_r);
 	if (io == 'i')

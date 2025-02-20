@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:00:59 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 01:45:33 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 04:59:32 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	banner(void)
 	ft_printf("C       : Change palette\n");
 	ft_printf("Z       : Toggle mouse centred zoom\n");
 	ft_printf("L Click : Center the choosen area\n");
+	ft_printf("U(+)J(-): Update julia set's reel\n");
+	ft_printf("O(+)L(-): Update julia set's imag\n");
 	ft_printf("R       : Reload\n");
 	ft_printf("H       : Help\n");
 	ft_printf("Q / ESC : Quit\n\n\e[0m");

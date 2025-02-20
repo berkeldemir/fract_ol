@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:10:45 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 01:15:52 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:26:26 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	rejulia(t_app *app, int key)
 		app->v1 += shift;
 	else if (key == XK_j || key == XK_J)
 		app->v1 -= shift;
+	ft_printf("\e[3;32m");
 	ft_printf("-----Julia set has been updated.----|\n");
 	ft_printf("| Reel: ");
 	ft_printf("%i.%i", (int)app->v1, \
@@ -92,5 +93,6 @@ void	rejulia(t_app *app, int key)
 	(int)((app->v2 - (int)app->v2) * 10000000));
 	ft_printf(" |\n");
 	ft_printf("'-----------------------------------'\n");
+	ft_printf("\e[0;m");
 	draw(app);
 }

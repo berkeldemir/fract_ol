@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 19:43:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 01:16:49 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:09:47 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	quit_app(t_app *app, char *msg)
 	if (msg[0] == '\0')
 		;
 	else
-		ft_printf("%s\n", msg);
+		ft_printf("\e[0;31m%s\e[0m\n", msg);
 	free(app);
 	exit(EXIT_FAILURE);
 	return (0);

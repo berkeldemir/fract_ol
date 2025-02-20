@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:03:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 01:16:06 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:30:06 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,8 @@ static void	init_mlx(t_app *app)
 		app->img = mlx_new_image(app->mlx, (int)W, (int)H);
 	if (!app->img)
 		quit_app(app, ERRMLC);
-	if (!app->ptr)
-		app->ptr = mlx_get_data_addr(app->img,
-				&app->bpp,
-				&app->size,
-				&app->endian);
+	app->ptr = mlx_get_data_addr(app->img, \
+	&app->bpp, &app->size, &app->endian);
 	if (!app->ptr)
 		quit_app(app, ERRMLC);
 	return ;

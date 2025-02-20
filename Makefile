@@ -6,7 +6,7 @@
 #    By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 13:43:40 by beldemir          #+#    #+#              #
-#    Updated: 2025/02/20 02:54:43 by beldemir         ###   ########.fr        #
+#    Updated: 2025/02/20 05:03:05 by beldemir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = ./src/main.c \
 		./src/quit.c \
 		./src/move.c \
 		./src/julia.c \
-		./src/tornado.c \
+		./src/feature.c \
 		./include/ft_printf.c 
 FLAGS = -I./include/mlx -L./include/mlx -lmlx -lX11 -lXext -lm -pthread
 

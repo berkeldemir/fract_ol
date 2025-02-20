@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 02:07:54 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 04:19:47 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:00:32 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,41 +24,28 @@ static void	color(t_app *i, int j)
 	pixel = i->ptr + (i->y * i->size + i->x * (i->bpp / 8));
 	*(unsigned int *)pixel = color;
 }
-/*
-static void complex_pow(double r, double i, double exponent, double *new_r, double *new_i) {
-    double mag = sqrt(r * r + i * i);
-    double theta = atan2(i, r);
-
-    double new_mag = pow(mag, exponent);
-    double new_theta = exponent * theta;
-
-    *new_r = new_mag * cos(new_theta);
-    *new_i = new_mag * sin(new_theta);
-}
-*/
 
 static void	calc(t_app *i)
 {
+	double	a;
+	double	b;
 	int		j;
 
 	j = 0;
 	while (j < MAX_IT)
 	{
-		double modulus = sqrt(i->z.r * i->z.r + i->z.i * i->z.i);
-		double arg = atan2(i->z.i, i->z.r);
-		double p = 2.3; // Try changing this value
-
-		i->z.r = pow(modulus, p) * cos(p * arg) - i->c.r;
-		i->z.i = pow(modulus, p) * sin(p * arg) - i->c.i;
-
-		if ((i->z.i * i->z.i) + (i->z.r * i->z.r) > 36)
+		a = (i->z.r * i->z.r - i->z.i * i->z.i) - i->c.r;
+		b = (-2 * i->z.r * i->z.i + i->c.i);
+		if ((i->z.i * i->z.i + i->z.r * i->z.r) > 64)
 			break ;
+		i->z.r = a;
+		i->z.i = b;
 		j++;
 	}
 	color(i, j);
 }
 
-void	tornado(t_app *i)
+void	feature(t_app *i)
 {
 	i->y = 0;
 	while (i->y < H)
@@ -70,13 +57,11 @@ void	tornado(t_app *i)
 			i->min_r + i->o_x;
 			i->c.i = (i->y / H) * (i->max_i - i->min_i) + \
 			i->min_i + i->o_y;
-			i->z.i = 0.0;
-			i->z.r = 0.0;
+			i->z.i = 0;
+			i->z.r = 0;
 			calc(i);
 			i->x++;
 		}
 		i->y++;
 	}
-
-	ft_printf("done\n");
 }
