@@ -21,10 +21,11 @@ void	banner(void)
 	ft_printf(" You can use WASD, direction keys \n");
 	ft_printf("  and mouse wheel to move around. \n\n");
 	ft_printf("------------ Shortcuts ------------\n");
-	ft_printf("1 -> 5  : Select palette\n");
+	ft_printf("1 -> 7  : Select palette\n");
 	ft_printf("C       : Change palette\n");
 	ft_printf("Z       : Toggle mouse centred zoom\n");
 	ft_printf("L Click : Center the choosen area\n");
+	ft_printf("* and - : Zoom in/out with keyboard\n");
 	ft_printf("U(+)J(-): Update julia set's reel\n");
 	ft_printf("O(+)L(-): Update julia set's imag\n");
 	ft_printf("R       : Reload\n");

@@ -117,17 +117,27 @@ int	get_color(t_app *i, int j)
 	int	color;
 
 	color = 0x000000;
-	if (i->palette % 5 == 0)
+	if (i->palette % 7 == 0)
 		color = palette_0(j);
-	else if (i->palette % 5 == 1)
+	else if (i->palette % 7 == 1)
 		color = palette_1(j);
-	else if (i->palette % 5 == 2)
+	else if (i->palette % 7 == 2)
 		color = palette_2(j);
-	else if (i->palette % 5 == 3)
+	else if (i->palette % 7 == 3)
 		color = palette_3(j);
-	else
+	else if (i->palette % 7 == 4)
 		return (((int)(255 * pow(((double)j / MAX_IT), 0.5)) << 16) | \
 		((int)(255 * pow(((double)j / MAX_IT), 2)) << 8) | \
 		((int)(255 * pow(((double)j / MAX_IT), 0.5))));
+	else if (i->palette % 7 == 5)
+		return (((int)(0) << 16) | \
+		((int)(255 * pow(((double)j / MAX_IT), 0.5)) << 8) | \
+		((int)(0)));
+	else
+	{
+		if (j % 2 == 0)
+			return (0xFFFFFF);
+		return (0xAAAAAA);
+	}
 	return (color);
 }

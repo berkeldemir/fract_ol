@@ -20,8 +20,16 @@ static int	close_window(t_app *app)
 
 static int	key2(int key, t_app *app)
 {
-	if (key == XK_5)
+	if (key == XK_5 || key == 65437)
 		app->palette = 4;
+	else if (key == XK_6 || key == 65432)
+		app->palette = 5;
+	else if (key == XK_7 || key == 65429)
+		app->palette = 6;
+	else if (key == 42 || key == 65451)
+		zoom(app, 'i', W / 2, H / 2);
+	else if (key == 45 || key == 65453)
+		zoom(app, 'o', W / 2, H / 2);
 	else if (key == XK_r || key == XK_R)
 		init(app);
 	else if (key == XK_h || key == XK_H)
@@ -30,17 +38,6 @@ static int	key2(int key, t_app *app)
 		app->palette++;
 	else if (key == XK_z || key == XK_Z)
 		app->center++;
-	else if (key == XK_m || key == XK_M)
-	{
-		mlx_clear_window(app->mlx, app->win);
-		mandelbrot(app);
-		mlx_put_image_to_window(app->mlx, app->win, app->img, 0, 0);
-	}
-	else if (key == XK_j || key == XK_J)
-	{
-		julia(app);
-		mlx_put_image_to_window(app->mlx, app->win, app->img, 0, 0);
-	}
 	else
 		return (1);
 	return (0);
@@ -50,13 +47,13 @@ static int	key(int key, t_app *app)
 {
 	if (key == XK_Escape || key == XK_q)
 		quit_app(app, ERRMOK);
-	else if (key == XK_1)
+	else if (key == XK_1 || key == 65436)
 		app->palette = 0;
-	else if (key == XK_2)
+	else if (key == XK_2 || key == 65433)
 		app->palette = 1;
-	else if (key == XK_3)
+	else if (key == XK_3 || key == 65435)
 		app->palette = 2;
-	else if (key == XK_4)
+	else if (key == XK_4 || key == 65430)
 		app->palette = 3;
 	else if (key == XK_Left || key == XK_a || key == XK_A || \
 	key == XK_Right || key == XK_d || key == XK_D || \
