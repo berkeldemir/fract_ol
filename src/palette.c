@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   palette.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:13:21 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/19 20:18:25 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:09:28 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,17 +114,14 @@ static int	palette_3(int j)
 
 int	get_color(t_app *i, int j)
 {
-	int	color;
-
-	color = 0x000000;
 	if (i->palette % 7 == 0)
-		color = palette_0(j);
+		return (palette_0(j));
 	else if (i->palette % 7 == 1)
-		color = palette_1(j);
+		return (palette_1(j));
 	else if (i->palette % 7 == 2)
-		color = palette_2(j);
+		return (palette_2(j));
 	else if (i->palette % 7 == 3)
-		color = palette_3(j);
+		return (palette_3(j));
 	else if (i->palette % 7 == 4)
 		return (((int)(255 * pow(((double)j / MAX_IT), 0.5)) << 16) | \
 		((int)(255 * pow(((double)j / MAX_IT), 2)) << 8) | \
@@ -139,5 +136,5 @@ int	get_color(t_app *i, int j)
 			return (0xFFFFFF);
 		return (0xAAAAAA);
 	}
-	return (color);
+	return (0x000000);
 }

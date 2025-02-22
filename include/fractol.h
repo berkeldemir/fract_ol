@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 05:36:57 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:31:11 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,21 @@
 # include <math.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include <stdlib.h>
-# include <pthread.h>
-# include <float.h>
 # include "./mlx/mlx.h"
 
-# define W 600.0
-# define H 600.0
+# define W 550.0
+# define H 550.0
 # define MAX_IT 294
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 
 # define ERRARG "Invalid argument count/value.\n\
 -----------------------------------\n\
-Sets : \e[1;31mmandelbrot, julia, feature\e[0;31m\n\
-Usage: \e[1;31m./fractol <set_name>\e[0;31m\n\
+Sets :\e[1;31m mandelbrot, julia, feature\e[0;31m\n\
+Usage:\e[1;31m ./fractol <set_name>\e[0;31m\n\
 \e[2;31mTip  : You can choose real and \n\
 imaginer parts of c for Julia!\n\
-ex: ./fractal julia -0.4 0.6\n"
+ex: ./fractal julia 0.365 0.365\n"
 # define ERRMLC "Malloc failed."
 # define ERRMOK "Hope you enjoy!"
 
@@ -80,7 +77,7 @@ int		ft_isnum(char *s);
 int		get_color(t_app *i, int j);
 void	hook(t_app *app);
 void	init(t_app *app);
-void 	draw(t_app *app);
+void	draw(t_app *app);
 void	move(t_app *app, int key);
 void	zoom(t_app *app, char io, int x, int y);
 void	center(t_app *app, int x, int y);

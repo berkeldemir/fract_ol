@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+         #
+#    By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 13:43:40 by beldemir          #+#    #+#              #
-#    Updated: 2025/02/20 05:03:05 by beldemir         ###   ########.fr        #
+#    Updated: 2025/02/22 14:05:17 by beldemir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ SRCS = ./src/main.c \
 		./src/hooks.c \
 		./src/mandelbrot.c \
 		./src/palette.c \
-		./src/quit.c \
 		./src/move.c \
 		./src/julia.c \
 		./src/feature.c \
