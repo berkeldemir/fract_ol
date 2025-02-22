@@ -6,7 +6,7 @@
 #    By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 13:43:40 by beldemir          #+#    #+#              #
-#    Updated: 2025/02/22 15:45:45 by beldemir         ###   ########.fr        #
+#    Updated: 2025/02/22 18:49:26 by beldemir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRCS = ./src/main.c \
 		./src/mandelbrot.c \
 		./src/julia.c \
 		./include/ft_printf.c 
+OBJS = $(SRCS:.c=.o)
 BONUSSRCS = ./src_bonus/main_bonus.c \
 		./src_bonus/init_bonus.c \
 		./src_bonus/utils_bonus.c \
@@ -32,22 +33,26 @@ BONUSSRCS = ./src_bonus/main_bonus.c \
 		./src_bonus/julia_bonus.c \
 		./src_bonus/feature_bonus.c \
 		./include/ft_printf.c 
+BONUSOBJS = $(BONUSSRCS:.c=.o)
 FLAGS = -I./include/mlx -L./include/mlx -lmlx -lX11 -lXext -lm -pthread
 
 all: $(NAME)
 
 $(NAME):$(OBJS)
 	@make -C ./include/mlx
-	@$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(FLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(FLAGS)
 
-bonus:
+bonus:$(BONUSOBJS)
 	@make -C ./include/mlx
-	@$(CC) $(CFLAGS) -o $(NAME) $(BONUSSRCS) $(FLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(BONUSOBJS) $(FLAGS)
 
 clean:
-	@rm -f fractol
+	@rm -rf ./src/*.o
+	@rm -rf ./src_bonus/*.o
+	@rm -rf ./include/*.o
 
 fclean: clean
+	@rm -rf fractol
 
 re: fclean all
 

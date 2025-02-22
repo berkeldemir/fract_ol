@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/22 15:23:35 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 18:54:13 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 
 # define ERRARG "Invalid argument count/value.\n\
 -----------------------------------\n\
-Sets :\e[1;31m mandelbrot, julia, feature\e[0;31m\n\
+Sets :\e[1;31m mandelbrot, julia\e[0;31m\n\
 Usage:\e[1;31m ./fractol <set_name>\e[0;31m\n\
 \e[2;31mTip  : You can choose real and \n\
 imaginer parts of c for Julia!\n\
