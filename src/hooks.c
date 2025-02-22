@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 01:17:46 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 11:27:40 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,9 @@ static int	mouse(int key, int x, int y, t_app *app)
 	draw(app);
 	return (0);
 }
-
 void	hook(t_app *app)
 {
-	mlx_key_hook(app->win, key, app);
-	mlx_mouse_hook(app->win, mouse, app);
+	mlx_hook(app->win, 2, 1L << 0, key, app);
+	mlx_hook(app->win, 4, 1L << 2, mouse, app);
 	mlx_hook(app->win, 17, 0, close_window, app);
 }
