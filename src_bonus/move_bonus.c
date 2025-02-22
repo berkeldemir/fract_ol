@@ -1,16 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   move_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 19:48:20 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/22 15:33:33 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 15:47:35 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "../include/fractol_bonus.h"
+
+void	center(t_app *app, int x, int y)
+{
+	double	ratio_r;
+	double	ratio_i;
+
+	ratio_r = (fabs(app->min_r) + fabs(app->max_r));
+	ratio_i = (fabs(app->min_i) + fabs(app->max_i));
+	app->o_x += (x - (W / 2)) * (ratio_r / W);
+	app->o_y += (y - (H / 2)) * (ratio_i / H);
+}
 
 void	move(t_app *app, int key)
 {
@@ -31,8 +42,8 @@ void	zoom(t_app *app, char io, int x, int y)
 {
 	double	c;
 
-	x = y;
-	y = x;
+	if (app->center % 2 == 1 && io == 'i')
+		center(app, x, y);
 	c = 0.2 * (app->max_r - app->min_r);
 	if (io == 'i')
 	{

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   palette.c                                          :+:      :+:    :+:   */
+/*   palette_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:13:21 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/22 15:28:41 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 15:47:37 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "../include/fractol_bonus.h"
 
 static int	palette_0(int j)
 {
@@ -114,13 +114,27 @@ static int	palette_3(int j)
 
 int	get_color(t_app *i, int j)
 {
-	if (i->palette % 4 == 0)
+	if (i->palette % 7 == 0)
 		return (palette_0(j));
-	else if (i->palette % 4 == 1)
+	else if (i->palette % 7 == 1)
 		return (palette_1(j));
-	else if (i->palette % 4 == 2)
+	else if (i->palette % 7 == 2)
 		return (palette_2(j));
-	else if (i->palette % 4 == 3)
+	else if (i->palette % 7 == 3)
 		return (palette_3(j));
+	else if (i->palette % 7 == 4)
+		return (((int)(255 * pow(((double)j / MAX_IT), 0.5)) << 16) | \
+		((int)(255 * pow(((double)j / MAX_IT), 2)) << 8) | \
+		((int)(255 * pow(((double)j / MAX_IT), 0.5))));
+	else if (i->palette % 7 == 5)
+		return (((int)(0) << 16) | \
+		((int)(255 * pow(((double)j / MAX_IT), 0.5)) << 8) | \
+		((int)(0)));
+	else
+	{
+		if (j % 2 == 0)
+			return (0xFFFFFF);
+		return (0xAAAAAA);
+	}
 	return (0x000000);
 }

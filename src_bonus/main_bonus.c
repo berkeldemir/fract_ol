@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:01:26 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/22 15:22:54 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 15:47:29 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "../include/fractol_bonus.h"
 
 int	quit_app(t_app *app, char *msg)
 {
@@ -38,10 +38,13 @@ static void	look(t_app *app, int ac, char **av)
 		if (!(ac == 4 && !(ft_strcmp(av[1], "julia")) \
 			&& ft_isnum(av[2]) > 0 && ft_isnum(av[3]) > 0))
 			quit_app(app, ERRARG);
-	if (!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1], "julia"))
+	if (!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1], "julia") \
+		|| !ft_strcmp(av[1], "feature"))
 	{
 		if (!ft_strcmp(av[1], "mandelbrot"))
 			app->set = 'm';
+		else if (!ft_strcmp(av[1], "feature"))
+			app->set = 'f';
 		else
 			app->set = 'j';
 	}
@@ -56,6 +59,8 @@ void	draw(t_app *app)
 		mandelbrot(app);
 	else if (app->set == 'j')
 		julia(app);
+	else if (app->set == 'f')
+		feature(app);
 	mlx_put_image_to_window(app->mlx, app->win, app->img, 0, 0);
 }
 

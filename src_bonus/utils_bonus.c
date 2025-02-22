@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:00:59 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/22 15:32:55 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 15:47:40 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "../include/fractol_bonus.h"
 
 void	banner(void)
 {
@@ -21,8 +21,15 @@ void	banner(void)
 	ft_printf(" You can use WASD, direction keys \n");
 	ft_printf("  and mouse wheel to move around. \n\n");
 	ft_printf("------------ Shortcuts ------------\n");
-	ft_printf("1 -> 4  : Select palette\n");
+	ft_printf("1 -> 7  : Select palette\n");
 	ft_printf("C       : Change palette\n");
+	ft_printf("Z       : Toggle mouse centred zoom\n");
+	ft_printf("L Click : Center the choosen area\n");
+	ft_printf("* and - : Zoom in/out with keyboard\n");
+	ft_printf("U(+)J(-): Update julia set's reel\n");
+	ft_printf("O(+)L(-): Update julia set's imag\n");
+	ft_printf("R       : Reload\n");
+	ft_printf("H       : Help\n");
 	ft_printf("Q / ESC : Quit\n\n\e[0m");
 	return ;
 }

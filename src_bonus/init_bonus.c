@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   init_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:03:39 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/22 15:23:10 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 15:47:21 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "../include/fractol_bonus.h"
 
 static void	init_mlx(t_app *app)
 {
@@ -52,5 +52,6 @@ void	init(t_app *app)
 	app->min_i = -1.3;
 	app->max_r = 1.3;
 	app->max_i = 1.3;
+	app->center = 1;
 	return ;
 }

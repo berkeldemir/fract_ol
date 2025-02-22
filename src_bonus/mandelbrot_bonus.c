@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tornado.c                                          :+:      :+:    :+:   */
+/*   mandelbrot_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/20 02:07:54 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 05:00:32 by beldemir         ###   ########.fr       */
+/*   Created: 2025/02/12 16:10:45 by beldemir          #+#    #+#             */
+/*   Updated: 2025/02/22 15:47:32 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/fractol.h"
+#include "../include/fractol_bonus.h"
 
 static void	color(t_app *i, int j)
 {
@@ -27,25 +27,27 @@ static void	color(t_app *i, int j)
 
 static void	calc(t_app *i)
 {
-	double	a;
-	double	b;
+	double	i2;
+	double	r2;
+	double	temp;
 	int		j;
 
 	j = 0;
 	while (j < MAX_IT)
 	{
-		a = (i->z.r * i->z.r - i->z.i * i->z.i) - i->c.r;
-		b = (-2 * i->z.r * i->z.i + i->c.i);
-		if ((i->z.i * i->z.i + i->z.r * i->z.r) > 64)
+		i2 = i->z.i * i->z.i;
+		r2 = i->z.r * i->z.r;
+		if (i2 + r2 > 4)
 			break ;
-		i->z.r = a;
-		i->z.i = b;
+		temp = r2 - i2 + i->c.r;
+		i->z.i = (2.0 * i->z.i * i->z.r) + i->c.i;
+		i->z.r = temp;
 		j++;
 	}
 	color(i, j);
 }
 
-void	feature(t_app *i)
+void	mandelbrot(t_app *i)
 {
 	i->y = 0;
 	while (i->y < H)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+         #
+#    By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 13:43:40 by beldemir          #+#    #+#              #
-#    Updated: 2025/02/22 14:37:10 by beldemir         ###   ########.fr        #
+#    Updated: 2025/02/22 15:45:45 by beldemir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,20 @@ SRCS = ./src/main.c \
 		./src/init.c \
 		./src/utils.c \
 		./src/hooks.c \
-		./src/mandelbrot.c \
 		./src/palette.c \
 		./src/move.c \
+		./src/mandelbrot.c \
 		./src/julia.c \
-		./src/feature.c \
+		./include/ft_printf.c 
+BONUSSRCS = ./src_bonus/main_bonus.c \
+		./src_bonus/init_bonus.c \
+		./src_bonus/utils_bonus.c \
+		./src_bonus/hooks_bonus.c \
+		./src_bonus/palette_bonus.c \
+		./src_bonus/move_bonus.c \
+		./src_bonus/mandelbrot_bonus.c \
+		./src_bonus/julia_bonus.c \
+		./src_bonus/feature_bonus.c \
 		./include/ft_printf.c 
 FLAGS = -I./include/mlx -L./include/mlx -lmlx -lX11 -lXext -lm -pthread
 
@@ -30,6 +39,10 @@ all: $(NAME)
 $(NAME):$(OBJS)
 	@make -C ./include/mlx
 	@$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(FLAGS)
+
+bonus:
+	@make -C ./include/mlx
+	@$(CC) $(CFLAGS) -o $(NAME) $(BONUSSRCS) $(FLAGS)
 
 clean:
 	@rm -f fractol

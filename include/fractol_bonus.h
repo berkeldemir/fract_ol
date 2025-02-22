@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   fractol_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/22 15:23:35 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 15:35:56 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # include <X11/keysym.h>
 # include <unistd.h>
@@ -61,6 +61,7 @@ typedef struct s_app
 	double			o_x;
 	double			o_y;
 	int				palette;
+	int				center;
 	double			max_r;
 	double			max_i;
 	double			min_r;
@@ -79,8 +80,11 @@ void	init(t_app *app);
 void	draw(t_app *app);
 void	move(t_app *app, int key);
 void	zoom(t_app *app, char io, int x, int y);
+void	center(t_app *app, int x, int y);
 void	mandelbrot(t_app *i);
 void	julia(t_app *i);
+void	rejulia(t_app *app, int key);
+void	feature(t_app *i);
 int		quit_app(t_app *app, char *msg);
 
 #endif
