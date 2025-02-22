@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+         #
+#    By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 13:43:40 by beldemir          #+#    #+#              #
-#    Updated: 2025/02/22 14:05:17 by beldemir         ###   ########.fr        #
+#    Updated: 2025/02/22 14:37:10 by beldemir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ FLAGS = -I./include/mlx -L./include/mlx -lmlx -lX11 -lXext -lm -pthread
 all: $(NAME)
 
 $(NAME):$(OBJS)
+	@make -C ./include/mlx
 	@$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(FLAGS)
 
 clean:
