@@ -12,7 +12,7 @@
 
 #include "../include/fractol.h"
 
-int	quit_app(t_app *app, char *msg)
+void	quit_app(t_app *app, char *msg)
 {
 	if (app->img)
 		mlx_destroy_image(app->mlx, app->img);
@@ -23,13 +23,13 @@ int	quit_app(t_app *app, char *msg)
 	free(app->mlx);
 	app->mlx = NULL;
 	app->ptr = NULL;
-	if (msg[0] == '\0')
-		;
-	else
+	if (msg[0] != '\0')
 		ft_printf("\e[0;31m%s\e[0m\n", msg);
 	free(app);
-	exit(EXIT_FAILURE);
-	return (0);
+	if (!ft_strcmp(msg, MSG_OK))
+		exit(EXIT_SUCCESS);
+	else
+		exit(EXIT_FAILURE);
 }
 
 static void	look(t_app *app, int ac, char **av)
@@ -37,7 +37,7 @@ static void	look(t_app *app, int ac, char **av)
 	if (ac != 2)
 		if (!(ac == 4 && !(ft_strcmp(av[1], "julia")) \
 			&& ft_isnum(av[2]) > 0 && ft_isnum(av[3]) > 0))
-			quit_app(app, ERRARG);
+			quit_app(app, MSG_ARG);
 	if (!ft_strcmp(av[1], "mandelbrot") || !ft_strcmp(av[1], "julia") \
 		|| !ft_strcmp(av[1], "feature"))
 	{
@@ -49,7 +49,7 @@ static void	look(t_app *app, int ac, char **av)
 			app->set = 'j';
 	}
 	else
-		quit_app(app, ERRARG);
+		quit_app(app, MSG_ARG);
 }
 
 void	draw(t_app *app)
@@ -70,7 +70,7 @@ int	main(int ac, char **av)
 
 	app = (t_app *)malloc(sizeof(t_app));
 	if (!app)
-		quit_app(app, ERRMLC);
+		quit_app(app, MSG_MALLOC);
 	ft_memset((void *)app, 0, sizeof(t_app));
 	look(app, ac, av);
 	init(app);
@@ -83,6 +83,6 @@ int	main(int ac, char **av)
 	}
 	draw(app);
 	mlx_loop(app->mlx);
-	quit_app(app, ERRMOK);
+	quit_app(app, MSG_OK);
 	return (0);
 }

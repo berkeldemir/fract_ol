@@ -18,23 +18,24 @@ SRCS = ./src/main.c \
 		./src/utils.c \
 		./src/hooks.c \
 		./src/mandelbrot.c \
-		./src/palette.c \
+		./src/color.c \
 		./src/move.c \
 		./src/julia.c \
 		./src/feature.c \
-		./include/ft_printf.c 
-FLAGS = -I./include/mlx -L./include/mlx -lmlx -lX11 -lXext -lm -pthread
+		./include/ft_printf.c
+OBJS = $(SRCS:.c=.o)
+FLAGS = -I./include/mlx -L./include/mlx -lmlx -lX11 -lXext -lm
 
 all: $(NAME)
 
 $(NAME):$(OBJS)
-	@make -C ./include/mlx
-	@$(CC) $(CFLAGS) -o $(NAME) $(SRCS) $(FLAGS)
+	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(FLAGS)
 
 clean:
-	@rm -f fractol
+	@rm -f $(OBJS)
 
 fclean: clean
+	@rm -f fractol
 
 re: fclean all
 

@@ -31,7 +31,6 @@ void	banner(void)
 	ft_printf("R       : Reload\n");
 	ft_printf("H       : Help\n");
 	ft_printf("Q / ESC : Quit\n\n\e[0m");
-	return ;
 }
 
 void	*ft_memset(void *b, int c, size_t len)
@@ -76,9 +75,9 @@ double	ft_atod(char *s)
 int	ft_isnum(char *s)
 {
 	int	i;
-	int	isdotused;
+	int	is_dot_used;
 
-	isdotused = 0;
+	is_dot_used = 0;
 	i = 0;
 	if (s[0] == '-' || s[i] == '+')
 		i++;
@@ -88,10 +87,10 @@ int	ft_isnum(char *s)
 		{
 			if (s[i] == '.')
 			{
-				if (isdotused == 1)
+				if (is_dot_used == 1)
 					return (-1);
 				else
-					isdotused = 1;
+					is_dot_used = 1;
 			}
 			i++;
 		}

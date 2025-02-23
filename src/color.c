@@ -65,31 +65,6 @@ static int	palette_1(int j)
 static int	palette_2(int j)
 {
 	if (j % 10 == 0)
-		return (0xE71D36);
-	if (j % 10 == 1)
-		return (0xF9C74F);
-	if (j % 10 == 2)
-		return (0x90BE6D);
-	if (j % 10 == 3)
-		return (0xF94144);
-	if (j % 10 == 4)
-		return (0x90C8F0);
-	if (j % 10 == 5)
-		return (0xF3722C);
-	if (j % 10 == 6)
-		return (0xFFD166);
-	if (j % 10 == 7)
-		return (0x06D6A0);
-	if (j % 10 == 8)
-		return (0x1F2041);
-	if (j % 10 == 9)
-		return (0x4C5975);
-	return (0xE71D36);
-}
-
-static int	palette_3(int j)
-{
-	if (j % 10 == 0)
 		return (0x7B0A3C);
 	if (j % 10 == 1)
 		return (0x9B0056);
@@ -112,21 +87,19 @@ static int	palette_3(int j)
 	return (0x7B0A3C);
 }
 
-int	get_color(t_app *i, int j)
+static int	get_color(t_app *i, int j)
 {
-	if (i->palette % 7 == 0)
+	if (i->palette % 6 == 0)
 		return (palette_0(j));
-	else if (i->palette % 7 == 1)
+	else if (i->palette % 6 == 1)
 		return (palette_1(j));
-	else if (i->palette % 7 == 2)
+	else if (i->palette % 6 == 2)
 		return (palette_2(j));
-	else if (i->palette % 7 == 3)
-		return (palette_3(j));
-	else if (i->palette % 7 == 4)
+	else if (i->palette % 6 == 3)
 		return (((int)(255 * pow(((double)j / MAX_IT), 0.5)) << 16) | \
 		((int)(255 * pow(((double)j / MAX_IT), 2)) << 8) | \
 		((int)(255 * pow(((double)j / MAX_IT), 0.5))));
-	else if (i->palette % 7 == 5)
+	else if (i->palette % 6 == 4)
 		return (((int)(0) << 16) | \
 		((int)(255 * pow(((double)j / MAX_IT), 0.5)) << 8) | \
 		((int)(0)));
@@ -137,4 +110,17 @@ int	get_color(t_app *i, int j)
 		return (0xAAAAAA);
 	}
 	return (0x000000);
+}
+
+void	color(t_app *i, int j)
+{
+	int		color;
+	char	*pixel;
+
+	if (j == MAX_IT)
+		color = 0x000000;
+	else
+		color = get_color(i, j);
+	pixel = i->ptr + (i->y * i->size + i->x * (i->bpp / 8));
+	*(unsigned int *)pixel = color;
 }
