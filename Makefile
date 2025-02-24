@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+         #
+#    By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/12 13:43:40 by beldemir          #+#    #+#              #
-#    Updated: 2025/02/22 14:37:10 by beldemir         ###   ########.fr        #
+#    Updated: 2025/02/24 11:35:54 by beldemir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

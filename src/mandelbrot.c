@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 16:10:45 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/20 03:20:42 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:35:21 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
