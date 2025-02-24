@@ -20,17 +20,17 @@ void	center(t_app *i, int x, int y)
 
 void	move(t_app *app, int key)
 {
-	double	move_factor;
+	double	c;
 
-	move_factor = 0.2 * (app->max_r - app->min_r);
+	c = 0.2 * (app->max_r - app->min_r);
 	if (key == XK_Left || key == XK_a || key == XK_A)
-		app->offset_x -= move_factor;
+		app->offset_x -= c;
 	else if (key == XK_Right || key == XK_d || key == XK_D)
-		app->offset_x += move_factor;
+		app->offset_x += c;
 	else if (key == XK_Up || key == XK_w || key == XK_W)
-		app->offset_y -= move_factor;
+		app->offset_y -= c;
 	else if (key == XK_Down || key == XK_s || key == XK_S)
-		app->offset_y += move_factor;
+		app->offset_y += c;
 }
 
 void	zoom(t_app *app, char io, int x, int y)
