@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol_bonus.h                                    :+:      :+:    :+:   */
+/*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/22 15:35:56 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/22 14:31:11 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_BONUS_H
-# define FRACTOL_BONUS_H
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 # include <X11/keysym.h>
+# include <X11/X.h>
 # include <unistd.h>
 # include <math.h>
 # include <stdlib.h>
@@ -26,15 +27,15 @@
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 
-# define ERRARG "Invalid argument count/value.\n\
+# define MSG_ARG "Invalid argument count/value.\n\
 -----------------------------------\n\
 Sets :\e[1;31m mandelbrot, julia, feature\e[0;31m\n\
 Usage:\e[1;31m ./fractol <set_name>\e[0;31m\n\
 \e[2;31mTip  : You can choose real and \n\
 imaginer parts of c for Julia!\n\
 ex: ./fractal julia 0.365 0.365\n"
-# define ERRMLC "Malloc failed."
-# define ERRMOK "Hope you enjoy!"
+# define MSG_MALLOC "Malloc failed."
+# define MSG_OK "Hope you enjoy!"
 
 typedef struct s_complex
 {
@@ -48,8 +49,8 @@ typedef struct s_app
 	void			*win;
 	void			*img;
 	void			*ptr;
-	int				bpp;
-	int				size;
+	int				bits_per_pixel;
+	int				size_line;
 	int				endian;
 	char			set;
 	double			v1;
@@ -58,8 +59,8 @@ typedef struct s_app
 	int				y;
 	t_complex		z;
 	t_complex		c;
-	double			o_x;
-	double			o_y;
+	double			offset_x;
+	double			offset_y;
 	int				palette;
 	int				center;
 	double			max_r;
@@ -74,7 +75,6 @@ int		ft_strcmp(const char *s1, const char *s2);
 void	*ft_memset(void *b, int c, size_t len);
 double	ft_atod(char *s);
 int		ft_isnum(char *s);
-int		get_color(t_app *i, int j);
 void	hook(t_app *app);
 void	init(t_app *app);
 void	draw(t_app *app);
@@ -85,6 +85,7 @@ void	mandelbrot(t_app *i);
 void	julia(t_app *i);
 void	rejulia(t_app *app, int key);
 void	feature(t_app *i);
-int		quit_app(t_app *app, char *msg);
+void	color(t_app *i, int j);
+void	quit_app(t_app *app, char *msg);
 
 #endif

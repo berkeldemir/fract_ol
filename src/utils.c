@@ -3,28 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: beldemir <beldemir@42istanbul.com.tr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:00:59 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/22 15:32:55 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/20 05:36:25 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fractol.h"
 
-void	banner(void)
+void	quit_app(t_app *app, char *msg)
 {
-	ft_printf("\e[0;34m\n\\\\\\\\\\\\\\ \e[1;35mfractol by beldemir\e[0;34m \
-///////\n");
-	ft_printf("//////////\e[1;35m W E L C O M E \e[0;34m\
-\\\\\\\\\\\\\\\\\\\\\n");
-	ft_printf(" You can use WASD, direction keys \n");
-	ft_printf("  and mouse wheel to move around. \n\n");
-	ft_printf("------------ Shortcuts ------------\n");
-	ft_printf("1 -> 4  : Select palette\n");
-	ft_printf("C       : Change palette\n");
-	ft_printf("Q / ESC : Quit\n\n\e[0m");
-	return ;
+	if (app->img)
+		mlx_destroy_image(app->mlx, app->img);
+	if (app->win)
+		mlx_destroy_window(app->mlx, app->win);
+	if (app->mlx)
+		mlx_destroy_display(app->mlx);
+	free(app->mlx);
+	app->mlx = NULL;
+	app->ptr = NULL;
+	if (msg[0] != '\0')
+		ft_printf("\e[0;31m%s\e[0m\n", msg);
+	free(app);
+	if (!ft_strcmp(msg, MSG_OK))
+		exit(EXIT_SUCCESS);
+	else
+		exit(EXIT_FAILURE);
 }
 
 void	*ft_memset(void *b, int c, size_t len)
@@ -69,9 +74,9 @@ double	ft_atod(char *s)
 int	ft_isnum(char *s)
 {
 	int	i;
-	int	isdotused;
+	int	is_dot_used;
 
-	isdotused = 0;
+	is_dot_used = 0;
 	i = 0;
 	if (s[0] == '-' || s[i] == '+')
 		i++;
@@ -81,10 +86,10 @@ int	ft_isnum(char *s)
 		{
 			if (s[i] == '.')
 			{
-				if (isdotused == 1)
+				if (is_dot_used == 1)
 					return (-1);
 				else
-					isdotused = 1;
+					is_dot_used = 1;
 			}
 			i++;
 		}
