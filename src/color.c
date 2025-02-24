@@ -121,6 +121,6 @@ void	color(t_app *i, int j)
 		color = 0x000000;
 	else
 		color = get_color(i, j);
-	pixel = i->ptr + (i->y * i->size + i->x * (i->bpp / 8));
+	pixel = i->ptr + (i->y * i->size_line + i->x * (i->bits_per_pixel / 8));
 	*(unsigned int *)pixel = color;
 }

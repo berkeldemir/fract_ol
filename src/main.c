@@ -12,24 +12,25 @@
 
 #include "../include/fractol.h"
 
-void	quit_app(t_app *app, char *msg)
+void	banner(void)
 {
-	if (app->img)
-		mlx_destroy_image(app->mlx, app->img);
-	if (app->win)
-		mlx_destroy_window(app->mlx, app->win);
-	if (app->mlx)
-		mlx_destroy_display(app->mlx);
-	free(app->mlx);
-	app->mlx = NULL;
-	app->ptr = NULL;
-	if (msg[0] != '\0')
-		ft_printf("\e[0;31m%s\e[0m\n", msg);
-	free(app);
-	if (!ft_strcmp(msg, MSG_OK))
-		exit(EXIT_SUCCESS);
-	else
-		exit(EXIT_FAILURE);
+	ft_printf("\e[0;34m\n\\\\\\\\\\\\\\ \e[1;35mfractol by beldemir\e[0;34m \
+///////\n");
+	ft_printf("//////////\e[1;35m W E L C O M E \e[0;34m\
+\\\\\\\\\\\\\\\\\\\\\n");
+	ft_printf(" You can use WASD, direction keys \n");
+	ft_printf("  and mouse wheel to move around. \n\n");
+	ft_printf("------------ Shortcuts ------------\n");
+	ft_printf("1 -> 7  : Select palette\n");
+	ft_printf("C       : Change palette\n");
+	ft_printf("Z       : Toggle mouse centred zoom\n");
+	ft_printf("L Click : Center the choosen area\n");
+	ft_printf("* and - : Zoom in/out with keyboard\n");
+	ft_printf("U(+)J(-): Update julia set's reel\n");
+	ft_printf("O(+)L(-): Update julia set's imag\n");
+	ft_printf("R       : Reload\n");
+	ft_printf("H       : Help\n");
+	ft_printf("Q / ESC : Quit\n\n\e[0m");
 }
 
 static void	look(t_app *app, int ac, char **av)

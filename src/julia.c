@@ -64,6 +64,7 @@ void	rejulia(t_app *app, int key)
 		app->v1 += shift;
 	else if (key == XK_j || key == XK_J)
 		app->v1 -= shift;
+	draw(app);
 	ft_printf("\e[3;32m");
 	ft_printf("-----Julia set has been updated.----|\n");
 	ft_printf("| Reel: ");
@@ -75,5 +76,4 @@ void	rejulia(t_app *app, int key)
 	ft_printf(" |\n");
 	ft_printf("'-----------------------------------'\n");
 	ft_printf("\e[0;m");
-	draw(app);
 }

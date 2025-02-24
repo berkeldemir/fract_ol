@@ -49,8 +49,8 @@ typedef struct s_app
 	void			*win;
 	void			*img;
 	void			*ptr;
-	int				bpp;
-	int				size;
+	int				bits_per_pixel;
+	int				size_line;
 	int				endian;
 	char			set;
 	double			v1;
@@ -75,7 +75,6 @@ int		ft_strcmp(const char *s1, const char *s2);
 void	*ft_memset(void *b, int c, size_t len);
 double	ft_atod(char *s);
 int		ft_isnum(char *s);
-void	color(t_app *i, int j);
 void	hook(t_app *app);
 void	init(t_app *app);
 void	draw(t_app *app);
@@ -86,6 +85,7 @@ void	mandelbrot(t_app *i);
 void	julia(t_app *i);
 void	rejulia(t_app *app, int key);
 void	feature(t_app *i);
+void	color(t_app *i, int j);
 void	quit_app(t_app *app, char *msg);
 
 #endif

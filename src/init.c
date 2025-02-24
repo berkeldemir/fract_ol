@@ -28,10 +28,9 @@ static void	init_mlx(t_app *app)
 	if (!app->img)
 		quit_app(app, MSG_MALLOC);
 	app->ptr = mlx_get_data_addr(app->img, \
-	&app->bpp, &app->size, &app->endian);
+	&app->bits_per_pixel, &app->size_line, &app->endian);
 	if (!app->ptr)
 		quit_app(app, MSG_MALLOC);
-	// CHECK ALL IF THEY ARE NECCESARY
 }
 
 void	init(t_app *app)
