@@ -6,7 +6,7 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:18:17 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/24 11:35:32 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/25 14:41:07 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ static int	mouse(int key, int x, int y, t_app *app)
 
 void	hook(t_app *app)
 {
-	mlx_hook(app->win, KeyPress, KeyPressMask, key, app);   // LEARN ALL OF IT
-	mlx_hook(app->win, ButtonPress, ButtonPressMask, mouse, app); // LEARN ALL OF IT
+	mlx_hook(app->win, KeyPress, KeyPressMask, key, app);
+	mlx_hook(app->win, ButtonPress, ButtonPressMask, mouse, app);
 	mlx_hook(app->win, DestroyNotify, 0, destroy, app);
 }

@@ -6,12 +6,12 @@
 /*   By: beldemir <beldemir@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 13:53:25 by beldemir          #+#    #+#             */
-/*   Updated: 2025/02/24 11:34:25 by beldemir         ###   ########.fr       */
+/*   Updated: 2025/02/25 14:41:47 by beldemir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef FRACTOL_BONUS_H
+# define FRACTOL_BONUS_H
 
 # include <X11/keysym.h>
 # include <X11/X.h>
